@@ -260,8 +260,10 @@ public class Main{
 */
 
 
-/*
-HOW TO USE SWITCHES
+
+// HOW TO USE SWITCHES
+
+import javax.swing.JOptionPane;
 
 public class Main{
 
@@ -291,7 +293,7 @@ public class Main{
     }
 }
 
-*/
+
 /* Using AND OPERATOR &&
 public class Main{
 
