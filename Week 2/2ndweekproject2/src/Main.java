@@ -12,6 +12,7 @@ public class Main {
         }catch(InputMismatchException e){
             System.out.print("UH OH "+e);
         }
+        System.out.println();
 
     }
 }
