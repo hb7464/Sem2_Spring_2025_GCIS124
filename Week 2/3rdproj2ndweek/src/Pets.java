@@ -22,8 +22,8 @@ public class Pets{
         return this.species;
     }
 
-    public void dispall(){
-        System.out.println(this.getAge()+" "+this.getName()+" "+this.getSpecies());
+    public String toString(){
+        return this.getAge()+" "+this.getName()+" "+this.getSpecies();
     }
     public void changespecies(String newspecies){
         this.species = newspecies;
@@ -44,13 +44,11 @@ public class Pets{
 
         Pets  a =  new Pets(12,"sd","dog");
 
-        a.dispall();
-
+System.out.println(a);
         a.changeAge(14);
         a.changeName("Khaleel");
         a.changespecies("Human? Probably");
         
-        a.dispall();
         
         Scanner inp = new Scanner(System.in);
 
@@ -63,7 +61,6 @@ public class Pets{
             System.out.print("Enter your species: ");
             String species = inp.nextLine();
             Pets inputtime = new Pets(age, name, species);
-            inputtime.dispall();
             inp.close();
 
         } catch (InputMismatchException e) {
