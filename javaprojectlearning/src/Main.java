@@ -520,3 +520,48 @@ public class Main{
     }
 }
 */
+/* DUMB SHI I DID IN CLASS THAT I FOUND FUNNY
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+
+public class Main {
+
+    private static void displayImage() {
+        // Create the frame
+        JFrame frame = new JFrame("Display Image Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 400);
+        
+        // Load the image
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\hisha\\Downloads\\stock-vector-uh-oh-92290096.jpg");  // Replace with your image path
+        JLabel label = new JLabel(imageIcon);
+
+        // Add the label to the frame
+        frame.getContentPane().add(label, BorderLayout.CENTER);
+        
+        // Set the frame visible
+        frame.setVisible(true);
+    }
+    
+    public static void main(String[] args) {
+
+        try{
+        Scanner inp = new Scanner(System.in);
+        System.out.print("ENter your nage: ");
+        int age = inp.nextInt();
+        System.out.print("You are "+age+" years old");
+        }catch(InputMismatchException e){
+            System.out.print("UH OH "+e);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    displayImage();
+                }
+            });
+        }
+
+    }
+}
+*/
