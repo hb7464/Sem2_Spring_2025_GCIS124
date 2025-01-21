@@ -1,8 +1,4 @@
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.BufferedReader;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -17,20 +13,18 @@ public class Main {
 //        }
 //        System.out.println();
 
-        FileReader reader = new FileReader("awsd.txt");
-        BufferedReader bufferedReader = new BufferedReader(reader);
-        String s = bufferedReader.readLine();
-        System.out.println(s);
-        bufferedReader.close();
+        // FileReader reader = new FileReader("Sem2_Spring_2025_GCIS124\\Week 2\\2ndweekproject2\\awsd.txt");
+        // BufferedReader bufferedReader = new BufferedReader(reader);
+        // String s = bufferedReader.readLine();
+        // System.out.println(s);
+        // bufferedReader.close();
         
-        FileWriter writer = new FileWriter("Sem2_Spring_2025_GCIS124\\Week 2\\2ndweekproject2\\awsd.txt");
-        PrintWriter printWriter = new PrintWriter(writer);
-        printWriter.print("Hello");
-        printWriter.print("wdwd");
-        printWriter.close();
-        reader.close();
-
-
+        // FileWriter writer = new FileWriter("Sem2_Spring_2025_GCIS124\\Week 2\\2ndweekproject2\\awsd.txt");
+        // PrintWriter printWriter = new PrintWriter(writer);
+        // printWriter.print("Hello");
+        // printWriter.print("wdwd");
+        // printWriter.close();
+        // reader.close();      
         
     }
 }
