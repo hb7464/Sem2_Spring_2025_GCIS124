@@ -61,7 +61,9 @@ System.out.println(a);
             System.out.print("Enter your species: ");
             String species = inp.nextLine();
             Pets inputtime = new Pets(age, name, species);
+            System.out.println(inputtime);
             inp.close();
+
 
         } catch (InputMismatchException e) {
             System.out.println("STOP TRYING TO BREAK MY COPDE WITH "+e);
