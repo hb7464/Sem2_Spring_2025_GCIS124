@@ -7,6 +7,7 @@ public class student {
     private String LastName;
     @SuppressWarnings("FieldMayBeFinal")
     private int ID;
+    private Grading grade;
 
     public String getname(){
         return this.name;
@@ -20,17 +21,22 @@ public class student {
         return this.ID;
     }
 
+    public Grading getgrade(){
+        return this.grade;
+    }
+
     @Override
     public String toString(){
-        return this.getname() + " " + this.getlastname() + " " + this.getid();
+        return this.getname() + " " + this.getlastname() + " " + this.getid() + " " + this.getgrade();
     }
 
 
-    public student(String inpname, String inplastname, int inpID){
+    public student(String inpname, String inplastname, int inpID, Grading inpGrading){
 
         this.name = inpname;
         this.LastName = inplastname;
         this.ID = inpID;
+        this.grade = inpGrading;
 
     }
     

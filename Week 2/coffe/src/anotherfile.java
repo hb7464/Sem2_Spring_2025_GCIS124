@@ -18,7 +18,8 @@ public class anotherfile {
             System.out.print("Enter ID for student "+(i+1)+": ");
             int tempid = inp.nextInt();
             inp.nextLine();
-            student tempobj = new student(tempname, templastname, tempid);
+            Grading tempgrade = Grading.A;
+            student tempobj = new student(tempname, templastname, tempid,tempgrade);
             arr[i] = tempobj;
         }
         inp.close();
