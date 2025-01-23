@@ -20,7 +20,7 @@ public class student {
         return this.ID;
     }
 
-    @SuppressWarnings("override")
+    @Override
     public String toString(){
         return this.getname() + " " + this.getlastname() + " " + this.getid();
     }
