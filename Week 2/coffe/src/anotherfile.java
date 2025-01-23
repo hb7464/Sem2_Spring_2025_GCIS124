@@ -19,7 +19,7 @@ public class anotherfile {
             int tempid = inp.nextInt();
             inp.nextLine();
             Grading tempgrade = Grading.A;
-            student tempobj = new student(tempname, templastname, tempid,tempgrade);
+            student tempobj = new student(tempname, templastname, tempid, tempgrade);
             arr[i] = tempobj;
         }
         inp.close();

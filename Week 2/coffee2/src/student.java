@@ -6,8 +6,7 @@ public class student {
     private String LastName;
     @SuppressWarnings("FieldMayBeFinal")
     private int ID;
-    @SuppressWarnings("FieldMayBeFinal")
-    private Grading grade;
+    private anothergrade grade;
 
     public String getname(){
         return this.name;
@@ -21,7 +20,7 @@ public class student {
         return this.ID;
     }
 
-    public Grading getgrade(){
+    public anothergrade getgrade(){
         return this.grade;
     }
 
@@ -31,7 +30,7 @@ public class student {
     }
 
 
-    public student(String inpname, String inplastname, int inpID, Grading inpGrading){
+    public student(String inpname, String inplastname, int inpID, anothergrade inpGrading){
 
         this.name = inpname;
         this.LastName = inplastname;
@@ -41,5 +40,3 @@ public class student {
     }
     
 }
-
-//create enumeration that represents month, with one attribute number of days
