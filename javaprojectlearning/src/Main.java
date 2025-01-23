@@ -269,7 +269,7 @@ public class Main{
 
     public static void main(String[] args){
 
-        String day = JOptionPane.showInputDialog("Enter a day");
+        String day = JOptionPane.showInputDialog("Enter a Holiday");
         switch(day) {
 
             case "Sunday": JOptionPane.showMessageDialog(null,"It is "+ day);
