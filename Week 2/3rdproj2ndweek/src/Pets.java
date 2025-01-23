@@ -22,6 +22,7 @@ public class Pets{
         return this.species;
     }
 
+    @SuppressWarnings("override")
     public String toString(){
         return this.getAge()+" "+this.getName()+" "+this.getSpecies();
     }

@@ -272,21 +272,14 @@ public class Main{
         String day = JOptionPane.showInputDialog("Enter a Holiday");
         switch(day) {
 
-            case "Sunday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Monday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Tuesday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Wednesday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Thursday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Friday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            case "Saturday": JOptionPane.showMessageDialog(null,"It is "+ day);
-            break;
-            default: JOptionPane.showMessageDialog(null,day+" is not a real day");
+            case "Sunday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Monday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Tuesday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Wednesday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Thursday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Friday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            case "Saturday" -> JOptionPane.showMessageDialog(null,"It is "+ day);
+            default -> JOptionPane.showMessageDialog(null,day+" is not a real day");
 
         }
 
