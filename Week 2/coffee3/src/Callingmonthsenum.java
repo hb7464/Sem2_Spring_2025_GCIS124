@@ -14,8 +14,9 @@ public class Callingmonthsenum {
         month[10] = months.November;
         month[11] = months.December;
 
-        for (int i = 0; i < month.length ; i++){
-            System.out.println(month[i]+" "+month[i].getdays());
+        
+        for (months month1 : month) {
+            System.out.println(month1 + " " + month1.getdays());
         }
 
     }

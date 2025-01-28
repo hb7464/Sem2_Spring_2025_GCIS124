@@ -12,6 +12,7 @@ public enum months {
     November(30),
     December(31);
     
+    @SuppressWarnings("FieldMayBeFinal")
     private int days;
 
     public int getdays(){
