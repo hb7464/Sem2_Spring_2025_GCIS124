@@ -43,16 +43,18 @@ public class Main {
         //    System.out.println(ind); 
 
         int[][] arra = new int[2][2]; //a way to create empty 2d arrays
-        for (int i=0; i < arra.length; i++){
-            for (int j=0; j<arra[i].length; j++)
-                System.out.print(arra[i][j]+"|");
+        for (int[] arra1 : arra) {
+            for (int j = 0; j < arra1.length; j++) {
+                System.out.print(arra1[j] + "|");
+            }
             System.out.println();
         }
 
         int[][] tes = {{12,33},{33,44}}; //alternate way to create 2d arrays
-        for (int i=0; i < tes.length; i++){
-            for (int j=0; j<tes[i].length; j++)
-                System.out.print(tes[i][j]+"|");
+        for (int[] te : tes) {
+            for (int j = 0; j < te.length; j++) {
+                System.out.print(te[j] + "|");
+            }
             System.out.println();
         }
     }

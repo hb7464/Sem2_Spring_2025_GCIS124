@@ -6,6 +6,7 @@ public class student {
     private String LastName;
     @SuppressWarnings("FieldMayBeFinal")
     private int ID;
+    @SuppressWarnings("FieldMayBeFinal")
     private anothergrade grade;
 
     public String getname(){
