@@ -7,7 +7,7 @@ public class anotherfile {
 
         Scanner inp = new Scanner(System.in);
 
-        student[] arr = new student[3];
+        student2[] arr = new student2[3];
 
         for (int i = 0; i < 3; i++) {
         
@@ -19,7 +19,7 @@ public class anotherfile {
             int tempid = inp.nextInt();
             inp.nextLine();
             Grading tempgrade = Grading.A;
-            student tempobj = new student(tempname, templastname, tempid, tempgrade);
+            student2 tempobj = new student2(tempname, templastname, tempid, tempgrade);
             arr[i] = tempobj;
         }
         inp.close();

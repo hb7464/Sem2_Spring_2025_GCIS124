@@ -1,4 +1,4 @@
-public class student {
+public class student2 {
 
     @SuppressWarnings("FieldMayBeFinal")
     private String name;
@@ -31,7 +31,7 @@ public class student {
     }
 
 
-    public student(String inpname, String inplastname, int inpID, Grading inpGrading){
+    public student2(String inpname, String inplastname, int inpID, Grading inpGrading){
 
         this.name = inpname;
         this.LastName = inplastname;
