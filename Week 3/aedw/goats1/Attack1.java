@@ -1,3 +1,3 @@
-ublic class Attack1 {
+public class Attack1 {
 
 }
