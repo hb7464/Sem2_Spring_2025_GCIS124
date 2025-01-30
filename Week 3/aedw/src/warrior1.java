@@ -24,7 +24,11 @@ public class warrior1 extends goat1{
         if(attack.getDamageType().equals(Damage1.Magical)){
             sumofHits*= 1.25;
         }
+        if(sumofHits>getcurrentHP()){
+            setcurrentHP(0);
+        }
+        else{
+            setcurrentHP(getcurrentHP()-sumofHits);
+        }
     }
-
-
 }

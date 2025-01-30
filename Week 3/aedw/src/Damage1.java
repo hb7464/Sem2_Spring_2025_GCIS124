@@ -1,5 +1,8 @@
 public enum Damage1 {
     Magical,
-    Physical;  
+    Physical,
+    Poison,
+    Holy,
+    Elemental;  
 
 }

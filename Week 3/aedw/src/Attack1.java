@@ -1,8 +1,11 @@
 
 public class Attack1 {
 
+    @SuppressWarnings("FieldMayBeFinal")
     private String name;
+    @SuppressWarnings("FieldMayBeFinal")
     private int[] hits;
+    @SuppressWarnings("FieldMayBeFinal")
     private Damage1 Damagetype;
 
     public Attack1(String name, int[] hits, Damage1 damagetype){

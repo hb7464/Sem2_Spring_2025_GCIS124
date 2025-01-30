@@ -24,6 +24,13 @@ public class mage1 extends goat1{
         if(attack.getDamageType().equals(Damage1.Physical)){
             sumofHits*= 1.25;
         }
+        
+        if(sumofHits>getcurrentHP()){
+            setcurrentHP(0);
+        }
+        else{
+            setcurrentHP(getcurrentHP()-sumofHits);
+        }
 
     }
 
