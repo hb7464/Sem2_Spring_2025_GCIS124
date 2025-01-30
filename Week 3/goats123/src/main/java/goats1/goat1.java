@@ -1,10 +1,14 @@
 package goats1;
 
-public class goat1 {
+public abstract class goat1 {
     private String name;
     private int maxHP;
     private int currentHP;
 
+    abstract Attack1 attack();
+    
+    abstract void takeDamage(Attack1 attack);
+    
     public goat1(String name, int maxHP, int currHP){
 
         this.name = name;
@@ -37,4 +41,5 @@ public class goat1 {
             setcurrentHP(currentHP+healamount);
         }
     }
+
 }   

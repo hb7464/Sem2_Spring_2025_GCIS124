@@ -3,10 +3,11 @@ package goats1;
 public class mage1 extends goat1{
 
     private final static int  MAGEMAXHP = 100;
-    public mage1(String name, int maxHP, int currHP) {
+    public mage1(String name) {
         super(name, MAGEMAXHP, MAGEMAXHP);
     }
 
+    @Override
     public Attack1 attack(){
 
         int[] hits = {9,9,9,9};
@@ -14,6 +15,7 @@ public class mage1 extends goat1{
         return a;
 
     }
+    @Override
     public void takeDamage(Attack1 attack){
         int sumofHits = 0;
         for (int i = 0;i < attack.getHits().length;i++)
