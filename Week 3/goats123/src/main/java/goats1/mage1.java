@@ -1,3 +1,5 @@
+package goats1;
+
 public class mage1 extends goat1{
 
     private final static int  MAGEMAXHP = 100;

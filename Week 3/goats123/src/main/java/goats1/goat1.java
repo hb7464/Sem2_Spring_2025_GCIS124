@@ -1,3 +1,5 @@
+package goats1;
+
 public class goat1 {
     private String name;
     private int maxHP;

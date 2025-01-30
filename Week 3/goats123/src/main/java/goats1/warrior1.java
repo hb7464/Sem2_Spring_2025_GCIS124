@@ -1,3 +1,5 @@
+package goats1;
+
 public class warrior1 extends goat1{
 
     private final static int  WARRIOR1MAXHP = 100;

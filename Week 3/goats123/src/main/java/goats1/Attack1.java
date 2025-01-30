@@ -1,3 +1,4 @@
+package goats1;
 
 public class Attack1 {
 
