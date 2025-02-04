@@ -1,7 +1,7 @@
 package animals;
 public interface Animal{
     
-    private static final String KINGDOM = "Animalia";
+    static final String KINGDOM = "Animalia";
 
     public static String getKingdom(){
         return KINGDOM;    
