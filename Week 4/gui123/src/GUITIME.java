@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.Insets;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
