@@ -27,20 +27,34 @@ public class activityforgui1 extends Application{
     @Override
     public void start(Stage stage) throws Exception{
         
-        Label label1 = labelFactory("123.456", Color.BLACK, Color.WHITE, Color.BLACK);
+        Label label1 = labelFactory("Result: ", Color.BLACK, Color.WHITE, Color.BLACK);
         
         VBox vb = new VBox();
-        Button press = new Button("+");
-        press.setFont(new Font("Arial",32));
-        press.setMaxWidth(Double.MAX_VALUE);
+
+        Button add = new Button("+");
+        add.setFont(new Font("Arial",32));
+        add.setMaxWidth(Double.MAX_VALUE);
+        Button subtract = new Button("-");
+        subtract.setFont(new Font("Arial",32));
+        subtract.setMaxWidth(Double.MAX_VALUE);
+        Button multiply = new Button("*");
+        multiply.setFont(new Font("Arial",32));
+        multiply.setMaxWidth(Double.MAX_VALUE);
+        Button divide = new Button("/");
+        divide.setFont(new Font("Arial",32));
+        divide.setMaxWidth(Double.MAX_VALUE);
+
         TextField tf1 = new TextField("Enter num1");
         TextField tf2 = new TextField("Enter num2");
         
         
-        vb.getChildren().addAll(label1,tf1,tf2,press);
+        vb.getChildren().addAll(label1,tf1,tf2,add,subtract, multiply, divide);
         Scene scene = new Scene(vb);
             
-        press.setOnAction(new PrintOnPress2(label1,tf1,tf2));
+        add.setOnAction(new PressAdd(label1,tf1,tf2));
+        subtract.setOnAction(new PressSubtract(label1,tf1,tf2));
+        multiply.setOnAction(new PressMultiply(label1,tf1,tf2));
+        divide.setOnAction(new PressDivide(label1,tf1,tf2));
         stage.setScene(scene);
         stage.setTitle("Addition");
         stage.show();

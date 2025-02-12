@@ -43,7 +43,7 @@ public class imageTiMe extends Application{
         VBox.setVgrow(iView, Priority.ALWAYS);
         Scene scene = new Scene(vb);
 
-        add.setOnAction(new PrintOnPress2(label1,tf1,tf2));
+        add.setOnAction(new PressAdd(label1,tf1,tf2));
         stage.setScene(scene);
         stage.setTitle("Addition");
         stage.show();
