@@ -17,10 +17,12 @@ import javafx.stage.Stage;
 
 
 public class interestingworking extends Application{
-
+    
     @Override
     public void start(Stage stage) throws Exception{
         
+        int[] swi = {0};
+
         GridPane gp = new GridPane();
 
         Label label1 = labelFactory("Result: ", Color.BLACK, Color.WHITE, Color.BLACK);
@@ -45,13 +47,14 @@ public class interestingworking extends Application{
         Button three = new Button("3");
         Button add = new Button("+");
         Button zero = new Button("0");
+        Button dot = new Button(".");
         Button equa = new Button("=");
         
         Button[] arr = {AC, Modu, Divi,
             seven, eight, nine, multi,
             four, five, six, subt,
             one, two, three, add,
-            zero, equa};
+            zero, dot, equa};
         for (Button i : arr){   
             i.setFont(new Font("Arial",32));
             i.setMaxWidth(Double.MAX_VALUE);
@@ -78,27 +81,30 @@ public class interestingworking extends Application{
         gp.add(two,1,5);
         gp.add(three,2,5);
         gp.add(add,3,5);
-        gp.add(zero,0,6,2,1);
+        gp.add(zero,0,6);
+        gp.add(dot,1,6);
         gp.add(equa,2,6,2,1);
 
-        one.setOnAction(new PressNum(label12, label14, one));
-        two.setOnAction(new PressNum(label12, label14, two));
-        three.setOnAction(new PressNum(label12, label14, three));
-        four.setOnAction(new PressNum(label12, label14, four));
-        five.setOnAction(new PressNum(label12, label14, five));
-        six.setOnAction(new PressNum(label12, label14, six));
-        seven.setOnAction(new PressNum(label12, label14, seven));
-        eight.setOnAction(new PressNum(label12, label14, eight));
-        nine.setOnAction(new PressNum(label12, label14, nine));
+        one.setOnAction(new PressNum(label12, label14, one, swi));
+        two.setOnAction(new PressNum(label12, label14, two, swi));
+        three.setOnAction(new PressNum(label12, label14, three, swi));
+        four.setOnAction(new PressNum(label12, label14, four, swi));
+        five.setOnAction(new PressNum(label12, label14, five, swi));
+        six.setOnAction(new PressNum(label12, label14, six, swi));
+        seven.setOnAction(new PressNum(label12, label14, seven, swi));
+        eight.setOnAction(new PressNum(label12, label14, eight, swi));
+        nine.setOnAction(new PressNum(label12, label14, nine, swi));
+        zero.setOnAction(new PressNum(label12, label14, zero, swi));
 
-        Modu.setOnAction(new PressOp(label13, Modu));
-        Divi.setOnAction(new PressOp(label13, Divi));
-        multi.setOnAction(new PressOp(label13, multi));
-        subt.setOnAction(new PressOp(label13, subt));
-        add.setOnAction(new PressOp(label13, add));
-
+        Modu.setOnAction(new PressOp(label13, Modu, swi));
+        Divi.setOnAction(new PressOp(label13, Divi, swi));
+        multi.setOnAction(new PressOp(label13, multi, swi));
+        subt.setOnAction(new PressOp(label13, subt, swi));
+        add.setOnAction(new PressOp(label13, add, swi));
+        
+        dot.setOnAction(new PressNum(label12, label14, dot, swi));
         equa.setOnAction(new PressEqual(label12, label13, label14, label1));
-        AC.setOnAction(new PressClear(label12, label13,label14,label1));
+        AC.setOnAction(new PressClear(label12, label13,label14,label1, swi));
     
         stage.setScene(scene);
         stage.setTitle("Calculator");
