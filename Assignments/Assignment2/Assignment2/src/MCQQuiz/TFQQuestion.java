@@ -10,13 +10,14 @@ public class TFQQuestion implements Question{
      // The constructor for the question, answers and correct answer
  
      public TFQQuestion(String question, String[] answers, String correctAnswer){
- 
+
+         
          this.question = question;
          this.answers = answers;
          this.correctAnswer = correctAnswer;
- 
-     }
- 
+         
+        }
+        
      // To get the question
      public String getQuestion(){
          return this.question;
@@ -48,13 +49,13 @@ public class TFQQuestion implements Question{
      // To display the question with possible answers
      @Override
      public String toString(){
-         return this.getQuestion()+"\n1."+this.answers[0]+
-         "\n2."+this.answers[1]+"\nEnter your answer (True or False): ";
+         return this.getQuestion()+"\n"+this.answers[0]+
+         "\n"+this.answers[1]+"\nEnter your answer (True or False): ";
      }
  
-     // To check if two MCQQuestion object instances are equal
-     public boolean equals(MCQQuestion Q2){
-         if (Q2 instanceof MCQQuestion){
+     // To check if two TFQQuestion object instances are equal
+     public boolean equals(TFQQuestion Q2){
+         if (Q2 instanceof TFQQuestion){
              return this.question.equals(Q2.getQuestion()) 
              && this.correctAnswer.equals(Q2.getCorrectAnswer()) 
              && this.answers == Q2.getAllAnswers();

@@ -58,9 +58,9 @@ package MCQQuiz;
      // To display the question with possible answers
      @Override
      public String toString(){
-         return this.getQuestion()+"\n1."+this.answers[0]+
-         "\n2."+this.answers[1]+"\n3."+this.answers[2]+
-         "\n4."+this.answers[3]+"\nEnter your answer (1-4): ";
+         return this.getQuestion()+"\n"+this.answers[0]+
+         "\n"+this.answers[1]+"\n"+this.answers[2]+
+         "\n"+this.answers[3]+"\nEnter your answer (Type it out the same as listed): ";
      }
  
      // To check if two MCQQuestion object instances are equal
@@ -74,8 +74,8 @@ package MCQQuiz;
      }
  
      // To check if the user has entered the correct answer
-     public boolean isCorrectAnswer(String UserOption){
-         return this.correctAnswer.equals(UserOption);
+     public boolean isCorrectAnswer(String userOption){
+         return this.correctAnswer.equals(userOption);
      }
 }
  
