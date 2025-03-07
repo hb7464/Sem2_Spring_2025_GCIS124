@@ -64,9 +64,22 @@ public class QuizQuestions {
         }    
     }
     public void select(int numOfQuestions){
-        for (int i = 0; i<numOfQuestions; i++){
-            selectedQuestions.add(allQuestions.get((int) (Math.random()*allQuestions.size())));
+        for (int i = 0; i<numOfQuestions;){
+            boolean is_repeated = false;
+            int ind = (int) (Math.random()*allQuestions.size());
+            for (Question j : selectedQuestions){
+                if (j == allQuestions.get(ind)){
+                    is_repeated = true;
+                    break;
+                }
+            }
+            if (is_repeated){
+                continue;
+            }
+            i++;
+            selectedQuestions.add(allQuestions.get(ind));
         }
-    }
 
+    }
 }
+
