@@ -23,7 +23,7 @@ public class QuizQuestions {
                 // System.out.println(possibleAnswers); //Debugging
                 
                 // Counting number of answers
-                int c = 0;
+                int c = 1;
                 for (int i = 0; i< possibleAnswers.length(); i++){
                     
                     if (possibleAnswers.charAt(i) == ','){
@@ -45,6 +45,7 @@ public class QuizQuestions {
                         tempStr += possibleAnswers.charAt(i);
                     }
                 }
+                tempArr[k] = tempStr;
 
                 String correctAnswer = bufferedReader.readLine();
                 if (tempArr.length == 2){
@@ -56,7 +57,7 @@ public class QuizQuestions {
                     allQuestions.add(questionData);
                 }
             }
-
+            // System.out.println("Loaded " + allQuestions.size() + " questions."); //debug
             bufferedReader.close();
         } 
         catch (Exception e) {
@@ -64,6 +65,12 @@ public class QuizQuestions {
         }    
     }
     public void select(int numOfQuestions){
+        
+        if (allQuestions.size() == 0) {
+            System.out.println("No questions loaded!2");
+            return;
+        }
+
         for (int i = 0; i<numOfQuestions;){
             boolean is_repeated = false;
             int ind = (int) (Math.random()*allQuestions.size());
@@ -78,7 +85,9 @@ public class QuizQuestions {
             }
             i++;
             selectedQuestions.add(allQuestions.get(ind));
+            // System.out.println("Selecting question at index " + ind + ": " + allQuestions.get(ind)); //debug
         }
+        // System.out.println("Selected " + selectedQuestions.size() + " questions."); //debug
 
     }
 }

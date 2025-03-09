@@ -1,40 +1,40 @@
 
 What is Python?
-A coding language,A cake,A snake,I don't know,
+A coding language,A cake,A snake,I don't know
 A coding language
 
 Does Java make me cry sometimes?
-True,False,
+True,False
 True
 
 Which of the following is used to define a function in Python?
-def,function,subroutine,method,
+def,function,subroutine,method
 def
 
 Is HTML a programming language?
-True,False,
+True,False
 False
 
 Which of the following is a valid variable name in Python?
-1_variable,-variable,variable1,1variable,
+1_variable,-variable,variable1,1variable
 variable1
 
 In cybersecurity, what does "phishing" refer to?
-A method to steal data via fake websites,A type of computer virus,A firewall technique,A password cracking method,
+A method to steal data via fake websites,A type of computer virus,A firewall technique,A password cracking method
 A method to steal data via fake websites
 
 Is Python considered a high-level programming language?
-True,False,
+True,False
 True
 
 Which of the following is a secure way to store passwords?
-Plain text,Encrypted format,Cleartext,Exposed to public,
+Plain text,Encrypted format,Cleartext,Exposed to public
 Encrypted format
 
 Which command is used to print output in Python?
-print(),echo(),display(),out(),
+print(),echo(),display(),out()
 print()
 
 Does a firewall block unauthorized access to a network?
-True,False,
+True,False
 True
