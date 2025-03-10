@@ -12,27 +12,34 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class PressCorrect implements EventHandler<ActionEvent> {
 
     private Button correctbutton;
-    private Button continuebutton = new Button("Continue!");
-    private GridPane gp;
+    private Label score;
+    private int currscore;
+    private int numOfQuestions;
+    private Button cont;
+    private Label contChecked;
 
-    public PressCorrect(Button correctbutton, GridPane gp){
+    public PressCorrect(Button correctbutton, Label score, int currscore, int numOfQuestions, Button cont, Label contChecked){
 
         this.correctbutton = correctbutton;
-        this.gp = gp;
+        this.score = score;
+        this.currscore = currscore;
+        this.numOfQuestions = numOfQuestions;
+        this.cont = cont;
+        this.contChecked = contChecked;
 
     }
 
     public void handle(ActionEvent event){
 
         correctbutton.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        quickFormat(continuebutton, Color.LIGHTGREY);
-        gp.add(continuebutton, 3, 4);
+        score.setText("   "+(currscore+1)+"/"+numOfQuestions+"   ");
+        quickFormat(cont, Color.LIGHTGREY);
+        cont.setText("Continue!");
 
     }
 

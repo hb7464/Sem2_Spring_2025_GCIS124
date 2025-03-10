@@ -1,5 +1,7 @@
 package MCQQuiz;
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -31,7 +33,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
     private Button a2 = new Button();
     private Button a3 = new Button();
     private Button a4 = new Button();
-    private String ca = "";
+    private Button[] answers = {a1,a2,a3,a4};
 
 
     public quizbegin(Label[] arrOfLabels, TextField actualNoOfQuestions, GridPane gp, Button startQuiz){
@@ -59,7 +61,19 @@ public class quizbegin implements EventHandler<ActionEvent> {
 
             else{
                 scorecard.setText("   0/"+numOfQuestions+"   ");
+                int currscore = 0;
                 timer.setText(numOfQuestions+":00");
+
+                Button continueButton = new Button("");
+                quickFormat(continueButton, null);
+                continueButton.setBorder(null);
+                gp.add(continueButton, 3, 4);
+                
+                Label contChecked = new Label("NotChecked");
+                quickFormat(contChecked, null);
+                contChecked.setBorder(null);
+                contChecked.setTextFill(null);
+                gp.add(contChecked, 3,3);
                 
                 QuizQuestions quizTime = new QuizQuestions();
                 String filename = "src\\MCQQuiz\\questionsBase.txt";
@@ -68,92 +82,44 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 gp.getChildren().remove(noOfQuestions);
                 gp.getChildren().remove(actualNoOfQuestions);
                 gp.getChildren().remove(startQuiz);
-                // System.out.println("HALP"); //debug
-
 
                 quizTime.select(numOfQuestions);
-                for (Question q: quizTime.selectedQuestions){
-                    // System.out.println("HALP2"); //debug
-                    ca = q.getCorrectAnswer();
-                    // System.out.println("sds"); //debug
+                int currIndex = 0;
+                //Add the load question function here
 
-                    q1.setText(q.getQuestion());
-                    String[] ans = q.getAllAnswers();
-                    
-                    if (ans.length == 2){
-                        
-                        if (ans[0] == ca){
-                            a1.setOnAction(new PressCorrect(a1,gp));
-                            a2.setOnAction(new PressWrong(a2,a1,gp));
-                        }
-                        else{
-                            a1.setOnAction(new PressWrong(a1,a2,gp));
-                            a2.setOnAction(new PressCorrect(a2,gp));
-                        }
-                        
-                        a1.setText(ans[0]);
-                        a2.setText(ans[1]);
-                        
-                        quickFormat(a1, Color.BLANCHEDALMOND);
-                        quickFormat(a2, Color.BLANCHEDALMOND);
-                        
-                        gp.add(a1, 0, 2, 3,1);
-                        gp.add(a2, 0, 3, 3,1);
-                        
-                    }
-                    
-                    else{
-                        
-                        if (ans[0] == ca){
-                            a1.setOnAction(new PressCorrect(a1,gp));
-                            a2.setOnAction(new PressWrong(a2,a1,gp));
-                            a3.setOnAction(new PressWrong(a3,a1,gp));
-                            a4.setOnAction(new PressWrong(a4,a1,gp));
-                        }
-                        else if (ans[1] == ca){
-                            a1.setOnAction(new PressWrong(a1,a2,gp));
-                            a2.setOnAction(new PressCorrect(a2,gp));
-                            a3.setOnAction(new PressWrong(a3,a2,gp));
-                            a4.setOnAction(new PressWrong(a4,a2,gp));
-                        }
-                        else if (ans[2] == ca){
-                            a1.setOnAction(new PressWrong(a1,a3,gp));
-                            a2.setOnAction(new PressWrong(a2,a3,gp));
-                            a3.setOnAction(new PressCorrect(a3,gp));
-                            a4.setOnAction(new PressWrong(a4,a3,gp));
-                        }
-                        else{
-                            a1.setOnAction(new PressWrong(a1,a4,gp));
-                            a2.setOnAction(new PressWrong(a2,a4,gp));
-                            a3.setOnAction(new PressWrong(a3,a4,gp));
-                            a4.setOnAction(new PressCorrect(a4,gp));
-                        }
-
-                        a1.setText(ans[0]);
-                        a2.setText(ans[1]);
-                        a3.setText(ans[2]);
-                        a4.setText(ans[3]);
-                        
-                        quickFormat(a1, Color.BLANCHEDALMOND);
-                        quickFormat(a2, Color.BLANCHEDALMOND);
-                        quickFormat(a3, Color.BLANCHEDALMOND);
-                        quickFormat(a4, Color.BLANCHEDALMOND);
-                        
-                        gp.add(a1, 0, 2, 3,1);
-                        gp.add(a2, 0, 3, 3,1);
-                        gp.add(a3, 0, 4, 3,1);
-                        gp.add(a4, 0, 5, 3,1);
-                        
-                    }
-                    quickFormat(q1, Color.LIGHTGREY);
-    
-                    gp.add(q1, 0, 1, 3,1);
-                }
-                // System.out.print("HAKP#");
+                // System.out.print("HAKP#"); //debug
             }
         }
         catch (Exception e){
             System.out.println("The following exception has occured: "+e);
+            System.out.println(e.getStackTrace()[0]);
+        }
+        
+    }
+
+    public void loadQuestion(int currIndex, QuizQuestions quizTime, Label q1, Button[] answers, boolean cleared){
+        if (currIndex >= quizTime.selectedQuestions.size()){
+            //Put code to complete quiz
+            return;
+        }
+        if (!cleared){
+            gp.getChildren().remove(q1);
+        }
+        ArrayList<Question> q = quizTime.selectedQuestions;
+        q1.setText(q.get(currIndex).getQuestion());
+        quickFormat(q1, Color.LIGHTGREY);
+        gp.add(q1, 0, 1, 3,1);
+        int option = 0;
+        for (Button a: answers){
+
+            if (quizTime.selectedQuestions.size() == 2 && option == 2){break;}
+            String ans = q.get(currIndex).getAllAnswers()[option];
+            a.setText(ans);
+            gp.add(a,0,currIndex+2, 3,1);
+            quickFormat(a, Color.BLANCHEDALMOND);
+            if (ans == q.get(currIndex).getCorrectAnswer()){a.setOnAction(new PressCorrect(a2, q1, currIndex, option, a1, q1));} 
+            //fix  presscorrrect and presswrong
+            else{a.setOnAction(new PressWrong(a, a, a, q1));}
         }
         
     }
@@ -166,15 +132,8 @@ public class quizbegin implements EventHandler<ActionEvent> {
         item.setPadding(new Insets(15));
         item.setAlignment(Pos.CENTER);
     }
+
     public void quickFormat(Button item, Color bgColor){
-        item.setMaxWidth(Double.MAX_VALUE);
-        item.setMaxHeight(Double.MAX_VALUE);
-        item.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(0), BorderStroke.DEFAULT_WIDTHS)));
-        item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
-        item.setPadding(new Insets(15));
-        item.setAlignment(Pos.CENTER);
-    }
-    public void quickFormat(TextField item, Color bgColor){
         item.setMaxWidth(Double.MAX_VALUE);
         item.setMaxHeight(Double.MAX_VALUE);
         item.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(0), BorderStroke.DEFAULT_WIDTHS)));

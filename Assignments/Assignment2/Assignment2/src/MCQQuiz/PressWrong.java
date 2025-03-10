@@ -12,30 +12,28 @@ import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
 public class PressWrong implements EventHandler<ActionEvent> {
 
     private Button wrongbutton;
     private Button correctbutton;
-    private Button continuebutton = new Button("Continue!");
-    private GridPane gp;
+    private Button cont;
+    private Label contChecked;
 
-    public PressWrong(Button wrongbutton, Button correctbutton, GridPane gp){
+    public PressWrong(Button wrongbutton, Button correctbutton, Button cont, Label contChecked){
 
         this.wrongbutton = wrongbutton;
         this.correctbutton = correctbutton;
-
+        this.cont = cont;
+        this.contChecked = contChecked;
     }
 
     public void handle(ActionEvent event){
 
         wrongbutton.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        correctbutton.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
-        quickFormat(continuebutton, Color.LIGHTGREY);
-        gp.add(continuebutton, 3, 4);
-
+        quickFormat(cont, Color.LIGHTGREY);
+        cont.setText("Continue!");
 
     }
 

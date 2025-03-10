@@ -67,7 +67,7 @@ public class QuizQuestions {
     public void select(int numOfQuestions){
         
         if (allQuestions.size() == 0) {
-            System.out.println("No questions loaded!2");
+            System.out.println("No questions loaded!");
             return;
         }
 
