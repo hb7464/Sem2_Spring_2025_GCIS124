@@ -18,9 +18,7 @@ public class QuizQuestions {
             while ((bufferedReader.readLine() != null)){
             
                 String question = bufferedReader.readLine();
-                // System.out.println(question); //Debugging
                 String possibleAnswers = bufferedReader.readLine();
-                // System.out.println(possibleAnswers); //Debugging
                 
                 // Counting number of answers
                 int c = 1;
@@ -35,7 +33,6 @@ public class QuizQuestions {
                 String[] tempArr = new String[c];
                 int k = 0;
                 for (int i = 0; i< possibleAnswers.length(); i++){
-                    // System.out.println(tempStr); //debugging 
                     if (possibleAnswers.charAt(i) == ','){
                         tempArr[k] = tempStr;
                         k++;
@@ -57,7 +54,6 @@ public class QuizQuestions {
                     allQuestions.add(questionData);
                 }
             }
-            // System.out.println("Loaded " + allQuestions.size() + " questions."); //debug
             bufferedReader.close();
         } 
         catch (Exception e) {
@@ -85,9 +81,7 @@ public class QuizQuestions {
             }
             i++;
             selectedQuestions.add(allQuestions.get(ind));
-            // System.out.println("Selecting question at index " + ind + ": " + allQuestions.get(ind)); //debug
         }
-        // System.out.println("Selected " + selectedQuestions.size() + " questions."); //debug
 
     }
 }

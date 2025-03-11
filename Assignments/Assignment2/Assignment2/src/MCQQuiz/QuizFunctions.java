@@ -43,9 +43,12 @@ public class QuizFunctions {
         item.setAlignment(Pos.CENTER);
     }
 
-    public void loadQuestion(int currIndex, QuizQuestions quizTime, Label q1, Button[] answers, int currscore, int numOfQuestions, Button contButton, GridPane gp, Label scorecard){
+    public void loadQuestion(int currIndex, QuizQuestions quizTime, Label q1, 
+    Button[] answers, int currscore, int numOfQuestions, Button contButton, 
+    GridPane gp, Label scorecard, Label hiddenscore){
         if (currIndex >= quizTime.selectedQuestions.size()){
-            //Put code to complete quiz
+            quickFormat(contButton, Color.LIGHTGREY);
+            contButton.setOnAction(new FinalPhase());
             return;
         }
         
@@ -55,7 +58,7 @@ public class QuizFunctions {
         gp.add(q1, 0, 1, 3,1);
         
         int option = 0;
-        System.out.println("Currscore1"+currscore);
+
         for (Button a: answers){
             
             
@@ -66,12 +69,12 @@ public class QuizFunctions {
             gp.add(a,0,option+2, 3,1);
             quickFormat(a, Color.BLANCHEDALMOND);
 
-            if (ans.equals(q.get(currIndex).getCorrectAnswer())){a.setOnAction(new PressCorrect(a, scorecard, currscore, numOfQuestions, contButton));}
+            if (ans.equals(q.get(currIndex).getCorrectAnswer())){a.setOnAction(new PressCorrect(a, scorecard, currscore, numOfQuestions, contButton, hiddenscore));}
 
             else{a.setOnAction(new PressWrong(a, contButton));}            
             option++;
         }
-        contButton.setOnAction(new PressContinue(contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard));
+        contButton.setOnAction(new PressContinue(contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard, hiddenscore));
         
     }
 

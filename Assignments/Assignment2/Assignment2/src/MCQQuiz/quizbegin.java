@@ -1,27 +1,16 @@
 package MCQQuiz;
 
-import java.util.ArrayList;
-
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderStroke;
-import javafx.scene.layout.BorderStrokeStyle;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.geometry.Pos;
-
 
 public class quizbegin implements EventHandler<ActionEvent> {
 
     private Label username;
+    private Label hiddenscore = new Label("0");
     private Label timer;
     private Label scorecard;
     private GridPane gp;
@@ -55,7 +44,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 noOfQuestions.setText("WOAH! Slow down there, we don't have that many questions.");
             }
 
-            else if (numOfQuestions < 0){
+            else if (numOfQuestions <= 0){
                 noOfQuestions.setText("This is code made for a quiz???\nWhy do you not want to answer questions? \nAre you hiding something?");
             }
 
@@ -64,7 +53,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 int currscore = 0;
                 timer.setText(numOfQuestions+":00");
 
-                Button cont = new Button("Continue!");
+                Button cont = new Button("");
                 func.quickFormat(cont, null);
                 cont.setBorder(null);
                 gp.add(cont, 3, 4);
@@ -79,12 +68,13 @@ public class quizbegin implements EventHandler<ActionEvent> {
 
                 quizTime.select(numOfQuestions);
                 int currIndex = 0;
-                func.loadQuestion(currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard);
+                func.loadQuestion(currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
             }
         }
         catch (Exception e){
             System.out.println("The following exception has occured: "+e);
             System.out.println(e.getStackTrace()[0]);
+            noOfQuestions.setText("Can you just enter a regular integer?");
         }
         
     }
