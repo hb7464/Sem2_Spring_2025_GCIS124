@@ -28,6 +28,7 @@ public class readToS implements EventHandler<ActionEvent> {
     private Label noOfQuestions = new Label("How many questions do you want?(0-10)");
     private TextField actualNoOfQuestions = new TextField("Enter num: ");
     private Button startQuiz = new Button("Start Quiz");
+    private QuizFunctions func = new QuizFunctions();
 
     public readToS(Label[] arrOfLabels, TextField usernameInp, GridPane gp, Button submit){
         this.username = arrOfLabels[0];
@@ -48,12 +49,12 @@ public class readToS implements EventHandler<ActionEvent> {
         gp.getChildren().remove(tos);
         gp.getChildren().remove(submit);
         
-        quickFormat(username, Color.DARKGRAY);
-        quickFormat(timer, Color.DARKGRAY);
-        quickFormat(scorecard, Color.DARKGRAY);
-        quickFormat(noOfQuestions, null);
-        quickFormat(actualNoOfQuestions, Color.WHITE);
-        quickFormat(startQuiz, Color.WHITE);
+        func.quickFormat(username, Color.DARKGRAY);
+        func.quickFormat(timer, Color.DARKGRAY);
+        func.quickFormat(scorecard, Color.DARKGRAY);
+        func.quickFormat(noOfQuestions, null);
+        func.quickFormat(actualNoOfQuestions, Color.WHITE);
+        func.quickFormat(startQuiz, Color.WHITE);
         
         gp.add(username, 0, 0);
         gp.add(scorecard, 1, 0);
@@ -65,30 +66,5 @@ public class readToS implements EventHandler<ActionEvent> {
         Label[] tempArr = {username, timer, scorecard, noOfQuestions};
         startQuiz.setOnAction(new quizbegin(tempArr, actualNoOfQuestions, gp, startQuiz));
 
-    }
-
-    public void quickFormat(Label item, Color bgColor){
-        item.setMaxWidth(Double.MAX_VALUE);
-        item.setMaxHeight(Double.MAX_VALUE);
-        item.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(0), BorderStroke.DEFAULT_WIDTHS)));
-        item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
-        item.setPadding(new Insets(15));
-        item.setAlignment(Pos.CENTER);
-    }
-    public void quickFormat(Button item, Color bgColor){
-        item.setMaxWidth(Double.MAX_VALUE);
-        item.setMaxHeight(Double.MAX_VALUE);
-        item.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(0), BorderStroke.DEFAULT_WIDTHS)));
-        item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
-        item.setPadding(new Insets(15));
-        item.setAlignment(Pos.CENTER);
-    }
-    public void quickFormat(TextField item, Color bgColor){
-        item.setMaxWidth(Double.MAX_VALUE);
-        item.setMaxHeight(Double.MAX_VALUE);
-        item.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID,new CornerRadii(0), BorderStroke.DEFAULT_WIDTHS)));
-        item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
-        item.setPadding(new Insets(15));
-        item.setAlignment(Pos.CENTER);
     }
 }
