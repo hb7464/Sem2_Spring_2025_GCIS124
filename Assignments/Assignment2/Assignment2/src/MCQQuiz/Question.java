@@ -2,9 +2,9 @@ package MCQQuiz;
 
 public interface Question {
     
-    String getQuestion();
-    String[] getAllAnswers();
-    String getCorrectAnswer();
-    boolean isCorrectAnswer(String userOption);
+    public String getQuestion();
+    public String[] getAllAnswers();
+    public String getCorrectAnswer();
+    public boolean isCorrectAnswer(String userOption);
 
 }

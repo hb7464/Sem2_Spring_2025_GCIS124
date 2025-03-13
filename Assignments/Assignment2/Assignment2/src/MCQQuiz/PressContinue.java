@@ -8,6 +8,7 @@ import javafx.scene.layout.GridPane;
 
 public class PressContinue implements EventHandler<ActionEvent> {
 
+    private Label username;
     private GridPane gp;
     private Button cont;
     private Label q1;
@@ -20,10 +21,11 @@ public class PressContinue implements EventHandler<ActionEvent> {
     private Label scorecard;
     private Label hiddenscore;
     
-    public PressContinue(Button cont, GridPane gp, 
+    public PressContinue(Label username, Button cont, GridPane gp, 
     Label q1, Button[] answers, QuizQuestions quizTime, 
     int currIndex, int currscore, int numOfQuestions, Label scorecard, Label hiddenscore){
 
+        this.username = username;
         this.cont = cont;
         this.gp = gp;
         this.q1 = q1;
@@ -46,15 +48,10 @@ public class PressContinue implements EventHandler<ActionEvent> {
         for (Button a: answers){
             gp.getChildren().remove(a);
         }     
-        gp.getChildren().remove(cont);
 
-        Button cont = new Button("");
-        func.quickFormat(cont, null);
-        cont.setBorder(null);
-        gp.add(cont, 3, 4);
         currscore = Integer.valueOf(hiddenscore.getText());
         
-        func.loadQuestion(currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
+        func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
 
 
     }

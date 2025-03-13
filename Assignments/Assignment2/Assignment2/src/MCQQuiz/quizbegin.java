@@ -56,7 +56,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 Button cont = new Button("");
                 func.quickFormat(cont, null);
                 cont.setBorder(null);
-                gp.add(cont, 3, 4);
+                gp.add(cont, 0, 10, 3,1);
                 
                 QuizQuestions quizTime = new QuizQuestions();
                 String filename = "src\\MCQQuiz\\questionsBase.txt";
@@ -68,7 +68,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
 
                 quizTime.select(numOfQuestions);
                 int currIndex = 0;
-                func.loadQuestion(currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
+                func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
             }
         }
         catch (Exception e){
