@@ -18,7 +18,16 @@ import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 
+/**A collection of all the methods repeatedly used within the GUI code */
+
 public class QuizFunctions {
+
+    /**
+     * The 3 quickFormat methods are for different data types of object but work the same
+     * It speeds up the process of formatting the objects on the scene
+     * @param item the instance of the object
+     * @param bgColor the desired color of the background for the object
+     */
 
     public void quickFormat(Label item, Color bgColor){
         item.setMaxWidth(Double.MAX_VALUE);
@@ -48,6 +57,22 @@ public class QuizFunctions {
         if ((GUIMain.textcol).equals(GUIMain.CBTEXT_COLOR)){item.setStyle("-fx-text-fill: #f05039");}
 
     }
+
+    /**
+     * A method used to load the next instance of a 
+     * question onto the scene for the user to answer
+     * @param username The username the user entered at the start of the quiz
+     * @param currIndex The question number the user is on
+     * @param quizTime The instance of QuizQuestions
+     * @param q1 The question label that was displayed
+     * @param answers An array of the answer buttons
+     * @param currscore The user's current score
+     * @param numOfQuestions The total number of questions
+     * @param contButton The continue button
+     * @param gp the gridpane instance
+     * @param scorecard The label displaying the score of the user
+     * @param hiddenscore The label containing the user's score
+     */
 
     public void loadQuestion(Label username, int currIndex, QuizQuestions quizTime, Label q1, 
     Button[] answers, int currscore, int numOfQuestions, Button contButton, 
@@ -90,6 +115,18 @@ public class QuizFunctions {
         }   
     }
 
+    /**
+     * A method to load the congratulations screen of the quiz 
+     * when the user answers all questions or time runs out
+     * @param username The username the user entered at the start of the quiz
+     * @param q1 The question label that was displayed
+     * @param answers An array of the answer buttons
+     * @param numOfQuestions The total number of questions
+     * @param contButton The continue button
+     * @param gp The gridpane instnace
+     * @param hiddenscore The label containing the user's score
+     */
+
     public void loadEndCard(Label username, Label q1, 
     Button[] answers, int numOfQuestions, Button contButton, 
     GridPane gp, Label hiddenscore){
@@ -110,6 +147,18 @@ public class QuizFunctions {
                 }
 
     }
+
+    /**
+     * A method to update the leaderboard text file whenever 
+     * someone finishes the quiz and the ranks as well as 
+     * returning a string that can be used to display the 
+     * leaderboard to a user who has just finished the quiz     
+     * 
+     * @param filename the filepath for the leaderboard
+     * @param username The username the user entered at the start of the quiz
+     * @param score The user's final score
+     * @return //It returns a string to be displayed in a label
+     */
 
     public String updateLeaderboard(String filename, String username, String score){
         ArrayList<ArrayList<String>> leaderboard = new ArrayList<>();
@@ -164,6 +213,15 @@ public class QuizFunctions {
         return board;
     }
 
+
+    /**
+     * A comparator used sort through the entries on the leaderboard
+     * and make the sure the highest rank has the highest score
+     * @param list1 The first entry
+     * @param list2 The second entry
+     * @return
+     */
+    
     public int compare(ArrayList<String> list1, ArrayList<String> list2) {
 
         int num1 = Integer.parseInt(list1.get(1));

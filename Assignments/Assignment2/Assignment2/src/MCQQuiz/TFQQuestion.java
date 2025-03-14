@@ -1,13 +1,21 @@
 package MCQQuiz;
 
+/**
+ * This represents a class for multiple choice questions with possible answers and the correct answer 
+ */
+
 public class TFQQuestion implements Question{
 // Declaring the private variables of the class
  
      private String question;
      private String correctAnswer;
- 
-     // The constructor for the question and correct answer
- 
+
+    /**
+     *  The constructor for the question and correct answer
+     * @param question The question
+     * @param correctAnswer The correct answer
+     */
+    
      public TFQQuestion(String question, String correctAnswer){
 
          

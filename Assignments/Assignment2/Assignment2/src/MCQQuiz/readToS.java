@@ -7,6 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Handles the event when the user reads and accepts the terms of service.
+ * Transitions from the intro screen to the quiz setup screen.
+ */
+
 public class readToS implements EventHandler<ActionEvent> {
 
     private Label username;
@@ -21,8 +26,17 @@ public class readToS implements EventHandler<ActionEvent> {
     private Button startQuiz = new Button("Start Quiz");
     private QuizFunctions func = new QuizFunctions();
     private Button colorButton;
-
-    public readToS(Label[] arrOfLabels, TextField usernameInp, GridPane gp, Button submit, Button colorButton){
+    
+    /**
+     * The method that setups up to right before the quiz starts
+     * @param arrOfLabels An array of all the labels from readToS
+     * @param usernameInp the textfield that the user entered their username into
+     * @param gp the gridpane instance
+     * @param submit the submit button
+     * @param colorButton the colorblind option button
+     */
+    
+     public readToS(Label[] arrOfLabels, TextField usernameInp, GridPane gp, Button submit, Button colorButton){
         this.username = arrOfLabels[0];
         this.timer = arrOfLabels[1];
         this.tos = arrOfLabels[2];
@@ -33,7 +47,8 @@ public class readToS implements EventHandler<ActionEvent> {
         this.colorButton = colorButton;
     }
 
-    public void handle(ActionEvent event){
+    public void handle(ActionEvent event){ //Getting the username from the user, and setting the scorecard
+                                            //Adding the timer, and choosing the number of questions
 
         username.setText(usernameInp.getText());
         scorecard.setText("   0/0   ");

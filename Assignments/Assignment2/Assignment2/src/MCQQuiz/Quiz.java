@@ -1,17 +1,23 @@
 package MCQQuiz;
 import java.util.Scanner;
 
+/**
+ * A class that contains the necessary 
+ * methods and attributes for a quiz
+ */
+
 public class Quiz {
 
     private double userScore;
     private double totalScore;
 
-    public String getScore(){return this.userScore+"/"+this.totalScore;}
 
-    public void startQuiz(){
+    public String getScore(){return this.userScore+"/"+this.totalScore;} //A method that returns the users score
+    
+    public void startQuiz(){ //A method to start the quiz and intialize it with the help of QuizQuestions
 
         QuizQuestions quizTime = new QuizQuestions();
-        try{
+        try{ //Try with resources to ensure the file can be opened
             String filename = "src\\MCQQuiz\\questionsBase.txt";
             quizTime.load(filename);
             
@@ -39,11 +45,7 @@ public class Quiz {
             quizTime.select(numOfQuestions);
 
             for (Question q: quizTime.selectedQuestions){
-                // System.out.println(q.getQuestion());        //debugging
-                // System.out.println(q.getCorrectAnswer());//debugging
-                // for (String ind: q.getAllAnswers()){
-                //     System.out.println(ind);
-                // }//debugging
+                
                 System.out.print(q);
                 String ans = inp.nextLine();
 

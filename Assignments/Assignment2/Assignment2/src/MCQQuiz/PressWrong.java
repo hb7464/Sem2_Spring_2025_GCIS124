@@ -16,6 +16,13 @@ public class PressWrong implements EventHandler<ActionEvent> {
     private QuizFunctions func = new QuizFunctions();
     private Button[] answers;
 
+    /**
+     * Button and events for and after selecting the wrong option.
+     *
+     * @param wrongbutton The button representing the incorrect answer.
+     * @param cont        The "Continue" button to move to next question
+     * @param answers     Options for the question  
+     */
 
     public PressWrong(Button wrongbutton, Button cont, Button[] answers){
 

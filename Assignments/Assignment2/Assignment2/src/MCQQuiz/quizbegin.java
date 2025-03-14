@@ -11,6 +11,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
+/**
+ * Handles the start of the quiz.
+ * Initializes the timer, loads questions, and officially starts the quiz
+ */
+
 public class quizbegin implements EventHandler<ActionEvent> {
 
     private Label username;
@@ -29,6 +34,14 @@ public class quizbegin implements EventHandler<ActionEvent> {
     private Button[] answers = {a1,a2,a3,a4};
     private QuizFunctions func = new QuizFunctions();
 
+    /**
+     * Intializing all the objects required to start the quiz
+     * @param arrOfLabels An array of all the labels from readToS
+     * @param actualNoOfQuestions The input from the user about the required number of questions
+     * @param gp The gridpane instance
+     * @param startQuiz The button used to start the quiz
+     */
+
     public quizbegin(Label[] arrOfLabels, TextField actualNoOfQuestions, GridPane gp, Button startQuiz){
         this.username = arrOfLabels[0];
         this.timerLabel = arrOfLabels[1];
@@ -39,9 +52,10 @@ public class quizbegin implements EventHandler<ActionEvent> {
         this.startQuiz = startQuiz;
     }
 
-    public void handle(ActionEvent event){
+    public void handle(ActionEvent event){ //Getting the number of questions from the user to see how
+                                            //many questions are required
 
-        try{
+        try{ //Using try-with resources to catch any non-numeric inputs inside the textfield
         
             Integer numOfQuestions = Integer.valueOf(actualNoOfQuestions.getText());
             if (numOfQuestions > 10){
@@ -97,7 +111,6 @@ public class quizbegin implements EventHandler<ActionEvent> {
         }
         catch (Exception e){
             System.out.println("The following exception has occured: "+e);
-            System.out.println(e.getStackTrace()[0]);
             noOfQuestions.setText("Can you just enter a regular integer?");
         }
         

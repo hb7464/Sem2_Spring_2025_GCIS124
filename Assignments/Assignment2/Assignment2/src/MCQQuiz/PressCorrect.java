@@ -20,6 +20,18 @@ public class PressCorrect implements EventHandler<ActionEvent> {
     private QuizFunctions func = new QuizFunctions();
     private Label hiddenscore;
     private Button[] answers;
+    
+    /**
+     * Button and events for and after selecting the right option.
+     *
+     * @param correctbutton  The button representing the correct answer.
+     * @param score          The label for displaying the current score.
+     * @param currscore      Current score of the player.
+     * @param numOfQuestions Number of questions left in the quiz.
+     * @param cont           The "Continue" button to move to next question
+     * @param hiddenscore    The label for storing the hidden score value.
+     * @param answers        Options for the question   
+     */
 
     public PressCorrect(Button correctbutton, Label score, int currscore, int numOfQuestions, Button cont, Label hiddenscore, Button[] answers){
 

@@ -1,5 +1,10 @@
 package MCQQuiz;
 
+/**
+ * The interface we use to define structure of a quiz question.
+ * TFQQuestion and MCQQuestion implement this interface
+ */
+
 public interface Question {
     
     //Getter functions for the question, answers and correct answer

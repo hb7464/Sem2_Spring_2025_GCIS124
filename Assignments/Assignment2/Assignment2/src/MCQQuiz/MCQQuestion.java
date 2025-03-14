@@ -1,23 +1,23 @@
 package MCQQuiz;
 
+
 /**
- * This represents a class for multiple choice questions with possible answers and the correct answer
- * 
- * @param question
- * @param answers
- * @param correctAnswer 
- * 
+ * This represents a class for multiple choice questions with possible answers and the correct answer 
  */
 
- public class MCQQuestion implements Question{
-     
-     // Declaring the private variables of the class
- 
-     private String question;
-     private String[] answers;
-     private String correctAnswer;
- 
-     // The constructor for the question, answers and correct answer
+public class MCQQuestion implements Question{
+    
+    // Declaring the private variables of the class
+    
+    private String question;
+    private String[] answers;
+    private String correctAnswer;
+    
+    /** The constructor for the question, answers and correct answer
+    * @param question The question
+    * @param answers The possible answers
+    * @param correctAnswer The actual answer   
+    */
  
      public MCQQuestion(String question, String[] answers, String correctAnswer){
  

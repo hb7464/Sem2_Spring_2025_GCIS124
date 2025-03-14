@@ -11,7 +11,14 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+/**
+ * The main class for the GUI version of the quiz
+ * Here we initialize the scene showing the start of the quiz
+ */
+
 public class GUIMain extends Application{
+
+    //The default colors + colorblind color options for the labels, buttons and textfields
 
     static Color backgroundcol1 = Color.rgb(195,210,213);
     static Color backgroundcol2 = Color.rgb(193,247,220);
@@ -19,9 +26,13 @@ public class GUIMain extends Application{
     final static Color CBBACK_COLOR = Color.rgb(31,68,156);
     final static Color CBTEXT_COLOR = Color.rgb(240,80,57);
 
+    
+
     @Override
     public void start(Stage stage) throws Exception {
         
+        //Initializing all the required variables
+
         GridPane gp = new GridPane();
         Scene scene = new Scene(gp);
         QuizFunctions func = new QuizFunctions();
@@ -45,6 +56,8 @@ public class GUIMain extends Application{
         Button startButton = new Button("Begin Quiz");
         Button colorButton = new Button("Click here for colour blind mode");
 
+        //Formatting all the created objects so it looks proper
+
         func.quickFormat(termsOfService, backgroundcol2);
         termsOfService.setTextAlignment(TextAlignment.CENTER);
         func.quickFormat(userNameEntry, backgroundcol2);
@@ -52,12 +65,14 @@ public class GUIMain extends Application{
         func.quickFormat(colorButton, CBBACK_COLOR);
         colorButton.setTextFill(CBTEXT_COLOR);
 
+        //Adding the objects to the gridpane
 
         gp.add(termsOfService, 0,0);
         gp.add(userNameEntry, 0,1);
         gp.add(startButton,0,2);
         gp.add(colorButton,0,3);
 
+        //Loading the labels into an array so less arguments are required by readToS
         Label[] tempArr = {userNameFinal, timer, termsOfService, scorecard};
         startButton.setOnAction(new readToS(tempArr, userNameEntry, gp, startButton, colorButton));
         colorButton.setOnAction(new PressColorBlind());
