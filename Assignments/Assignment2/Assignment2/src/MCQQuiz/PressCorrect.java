@@ -19,8 +19,9 @@ public class PressCorrect implements EventHandler<ActionEvent> {
     private Button cont;
     private QuizFunctions func = new QuizFunctions();
     private Label hiddenscore;
+    private Button[] answers;
 
-    public PressCorrect(Button correctbutton, Label score, int currscore, int numOfQuestions, Button cont, Label hiddenscore){
+    public PressCorrect(Button correctbutton, Label score, int currscore, int numOfQuestions, Button cont, Label hiddenscore, Button[] answers){
 
         this.correctbutton = correctbutton;
         this.score = score;
@@ -28,10 +29,15 @@ public class PressCorrect implements EventHandler<ActionEvent> {
         this.numOfQuestions = numOfQuestions;
         this.cont = cont;
         this.hiddenscore = hiddenscore;
+        this.answers = answers;
 
     }
 
     public void handle(ActionEvent event){
+
+        for (Button a : answers){
+            a.setDisable(true);
+        }
 
         currscore++;
         hiddenscore.setText(""+currscore);

@@ -14,16 +14,20 @@ public class PressWrong implements EventHandler<ActionEvent> {
     private Button wrongbutton;
     private Button cont;
     private QuizFunctions func = new QuizFunctions();
+    private Button[] answers;
 
 
-    public PressWrong(Button wrongbutton, Button cont){
+    public PressWrong(Button wrongbutton, Button cont, Button[] answers){
 
         this.wrongbutton = wrongbutton;
         this.cont = cont;
+        this.answers = answers;
     }
 
     public void handle(ActionEvent event){
-
+        for (Button a : answers){
+            a.setDisable(true);
+        }
         wrongbutton.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
         func.quickFormat(cont, Color.LIGHTGREY);
         cont.setText("Continue!");

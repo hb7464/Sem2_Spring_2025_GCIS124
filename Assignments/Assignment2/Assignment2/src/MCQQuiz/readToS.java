@@ -44,7 +44,7 @@ public class readToS implements EventHandler<ActionEvent> {
         func.quickFormat(username, Color.DARKGRAY);
         func.quickFormat(timer, Color.DARKGRAY);
         func.quickFormat(scorecard, Color.DARKGRAY);
-        func.quickFormat(noOfQuestions, null);
+        func.quickFormat(noOfQuestions, Color.WHITE);
         func.quickFormat(actualNoOfQuestions, Color.WHITE);
         func.quickFormat(startQuiz, Color.WHITE);
         

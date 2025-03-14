@@ -1,5 +1,9 @@
 package MCQQuiz;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -11,7 +15,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
 
     private Label username;
     private Label hiddenscore = new Label("0");
-    private Label timer;
+    private Label timerLabel;
     private Label scorecard;
     private GridPane gp;
     private Button startQuiz;
@@ -27,7 +31,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
 
     public quizbegin(Label[] arrOfLabels, TextField actualNoOfQuestions, GridPane gp, Button startQuiz){
         this.username = arrOfLabels[0];
-        this.timer = arrOfLabels[1];
+        this.timerLabel = arrOfLabels[1];
         this.scorecard = arrOfLabels[2];
         this.noOfQuestions = arrOfLabels[3];
         this.actualNoOfQuestions = actualNoOfQuestions;
@@ -51,7 +55,6 @@ public class quizbegin implements EventHandler<ActionEvent> {
             else{
                 scorecard.setText("   0/"+numOfQuestions+"   ");
                 int currscore = 0;
-                timer.setText(numOfQuestions+":00");
 
                 Button cont = new Button("");
                 func.quickFormat(cont, null);
@@ -65,9 +68,30 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 gp.getChildren().remove(noOfQuestions);
                 gp.getChildren().remove(actualNoOfQuestions);
                 gp.getChildren().remove(startQuiz);
-
+                
                 quizTime.select(numOfQuestions);
                 int currIndex = 0;
+                
+                Timer timer = new Timer();
+                
+                TimerTask countdown = new TimerTask() {
+                    int time = numOfQuestions*60;
+                    @Override 
+                    public void run(){
+
+                        
+                        if (time > 0){
+                            Platform.runLater(() -> {timerLabel.setText((time/60)+":"+(time%60));});
+                            time--;
+                        }
+                        else if (time <= 0){
+                            timerLabel.setText("Times Up!");
+                            func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore);
+                            timer.cancel();
+                        }
+                    }
+                };
+                timer.scheduleAtFixedRate(countdown, 0, 1000);
                 func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
             }
         }

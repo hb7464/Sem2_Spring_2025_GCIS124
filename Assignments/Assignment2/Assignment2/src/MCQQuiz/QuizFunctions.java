@@ -1,7 +1,6 @@
 package MCQQuiz;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -51,7 +50,46 @@ public class QuizFunctions {
     GridPane gp, Label scorecard, Label hiddenscore){
         try{
             if (currIndex >= quizTime.selectedQuestions.size()){
-                Label congratsMessage = new Label("Congrats "+username.getText()+" on finishing the quiz \n You have scored: "
+                
+                loadEndCard(username, q1, answers, numOfQuestions, contButton, gp, hiddenscore);
+
+                return;
+            }
+            
+            ArrayList<Question> q = quizTime.selectedQuestions;
+            q1.setText(q.get(currIndex).getQuestion());
+            quickFormat(q1, Color.LIGHTGREY);
+            gp.add(q1, 0, 1, 3,1);
+            q1.setDisable(false);
+            
+            int option = 0;
+
+            for (Button a: answers){
+                
+                
+                if (q.get(currIndex).getAllAnswers().length == 2 && option == 2){break;}
+
+                String ans = q.get(currIndex).getAllAnswers()[option];
+                a.setText(ans);
+                a.setDisable(false);
+                gp.add(a,0,option+2, 3,1);
+                quickFormat(a, Color.BLANCHEDALMOND);
+
+                if (ans.equals(q.get(currIndex).getCorrectAnswer())){a.setOnAction(new PressCorrect(a, scorecard, currscore, numOfQuestions, contButton, hiddenscore,answers));}
+
+                else{a.setOnAction(new PressWrong(a, contButton, answers));}            
+                option++;
+            }
+            contButton.setOnAction(new PressContinue(username, contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard, hiddenscore));
+        }catch (Exception e){
+            System.out.println("The following error has occured: "+e);
+        }   
+    }
+
+    public void loadEndCard(Label username, Label q1, 
+    Button[] answers, int numOfQuestions, Button contButton, 
+    GridPane gp, Label hiddenscore){
+        Label congratsMessage = new Label("Congrats "+username.getText()+" on finishing the quiz \n You have scored: "
                                                     +hiddenscore.getText()+"/"+numOfQuestions);
                 quickFormat(congratsMessage,Color.ORANGERED);
                 
@@ -65,37 +103,8 @@ public class QuizFunctions {
                 gp.getChildren().remove(q1);
                 for (Button a: answers){
                     gp.getChildren().remove(a);
-                }     
+                }
 
-                return;
-            }
-            
-            ArrayList<Question> q = quizTime.selectedQuestions;
-            q1.setText(q.get(currIndex).getQuestion());
-            quickFormat(q1, Color.LIGHTGREY);
-            gp.add(q1, 0, 1, 3,1);
-            
-            int option = 0;
-
-            for (Button a: answers){
-                
-                
-                if (q.get(currIndex).getAllAnswers().length == 2 && option == 2){break;}
-
-                String ans = q.get(currIndex).getAllAnswers()[option];
-                a.setText(ans);
-                gp.add(a,0,option+2, 3,1);
-                quickFormat(a, Color.BLANCHEDALMOND);
-
-                if (ans.equals(q.get(currIndex).getCorrectAnswer())){a.setOnAction(new PressCorrect(a, scorecard, currscore, numOfQuestions, contButton, hiddenscore));}
-
-                else{a.setOnAction(new PressWrong(a, contButton));}            
-                option++;
-            }
-            contButton.setOnAction(new PressContinue(username, contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard, hiddenscore));
-        }catch (Exception e){
-            System.out.println("The following error has occured: "+e);
-        }   
     }
 
     public String updateLeaderboard(String filename, String username, String score){
@@ -133,13 +142,14 @@ public class QuizFunctions {
             bufferedReader.close();
             
             
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(filename));
-            
+            FileWriter bufferedWriter = new FileWriter(filename);
+            int rank = 1;
             for (ArrayList<String> entry : leaderboard) {
-                bufferedWriter.newLine();
-                bufferedWriter.write(entry.get(0)+","+entry.get(1)+"\n");
-                board += "["+(leaderboard.indexOf(entry)+1)+"] "+entry.get(0)+" : "+entry.get(1)+"\n";
+                bufferedWriter.write("\n"+entry.get(0)+","+entry.get(1)+"\n");
+                board += "["+rank+"] "+entry.get(0)+" : "+entry.get(1)+"\n";
+                rank++;
             }
+            bufferedWriter.flush();
             bufferedWriter.close();
             
             

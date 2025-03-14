@@ -18,6 +18,7 @@ public class GUIMain extends Application{
         GridPane gp = new GridPane();
         Scene scene = new Scene(gp);
         QuizFunctions func = new QuizFunctions();
+
         
         Label userNameFinal = new Label();
         Label timer = new Label("Timer");
@@ -28,17 +29,17 @@ public class GUIMain extends Application{
         func.quickFormat(termsOfService, Color.WHITE);
         func.quickFormat(userNameEntry, Color.WHITE);
         func.quickFormat(startButton, Color.LIGHTGREY);
-        
+
+
         gp.add(termsOfService, 0,0);
         gp.add(userNameEntry, 0,1);
         gp.add(startButton,0,2);
-    
         Label[] tempArr = {userNameFinal, timer, termsOfService, scorecard};
         startButton.setOnAction(new readToS(tempArr, userNameEntry, gp, startButton));
         
 
 
-        gp.setAlignment(Pos.TOP_CENTER);
+        gp.setAlignment(Pos.CENTER);
         stage.setScene(scene);
         stage.setTitle("Quiz");
         stage.show();
