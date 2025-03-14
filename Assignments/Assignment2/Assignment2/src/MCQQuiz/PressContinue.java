@@ -36,7 +36,7 @@ public class PressContinue implements EventHandler<ActionEvent> {
      * @param quizTime       he object containing the selected questions for the quiz
      * @param currIndex      The index for the current question.
      * @param currscore      Current score of the player.
-     * @param numOfQuestions Number of questions left in the quiz.
+     * @param numOfQuestions The total number of questions.
      * @param scorecard      Label which shows the player's scorecard.
      * @param hiddenscore    The label for storing the hidden score value.
      */

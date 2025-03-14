@@ -27,7 +27,7 @@ public class PressCorrect implements EventHandler<ActionEvent> {
      * @param correctbutton  The button representing the correct answer.
      * @param score          The label for displaying the current score.
      * @param currscore      Current score of the player.
-     * @param numOfQuestions Number of questions left in the quiz.
+     * @param numOfQuestions The total number of questions.
      * @param cont           The "Continue" button to move to next question
      * @param hiddenscore    The label for storing the hidden score value.
      * @param answers        Options for the question   
