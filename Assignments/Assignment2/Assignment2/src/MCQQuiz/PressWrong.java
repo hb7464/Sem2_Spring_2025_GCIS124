@@ -29,7 +29,7 @@ public class PressWrong implements EventHandler<ActionEvent> {
             a.setDisable(true);
         }
         wrongbutton.setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
-        func.quickFormat(cont, Color.LIGHTGREY);
+        func.quickFormat(cont, GUIMain.backgroundcol2);
         cont.setText("Continue!");
 
     }

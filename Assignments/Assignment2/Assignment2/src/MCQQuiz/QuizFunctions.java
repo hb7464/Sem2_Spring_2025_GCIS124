@@ -27,6 +27,7 @@ public class QuizFunctions {
         item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
         item.setPadding(new Insets(15));
         item.setAlignment(Pos.CENTER);
+        item.setTextFill(GUIMain.textcol);
     }
     public void quickFormat(Button item, Color bgColor){
         item.setMaxWidth(Double.MAX_VALUE);
@@ -35,6 +36,7 @@ public class QuizFunctions {
         item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
         item.setPadding(new Insets(15));
         item.setAlignment(Pos.CENTER);
+        item.setTextFill(GUIMain.textcol);
     }
     public void quickFormat(TextField item, Color bgColor){
         item.setMaxWidth(Double.MAX_VALUE);
@@ -43,6 +45,8 @@ public class QuizFunctions {
         item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
         item.setPadding(new Insets(15));
         item.setAlignment(Pos.CENTER);
+        if ((GUIMain.textcol).equals(GUIMain.CBtextcol)){item.setStyle("-fx-text-fill: #f05039");}
+
     }
 
     public void loadQuestion(Label username, int currIndex, QuizQuestions quizTime, Label q1, 
@@ -58,7 +62,7 @@ public class QuizFunctions {
             
             ArrayList<Question> q = quizTime.selectedQuestions;
             q1.setText(q.get(currIndex).getQuestion());
-            quickFormat(q1, Color.LIGHTGREY);
+            quickFormat(q1, GUIMain.backgroundcol2);
             gp.add(q1, 0, 1, 3,1);
             q1.setDisable(false);
             
@@ -73,7 +77,7 @@ public class QuizFunctions {
                 a.setText(ans);
                 a.setDisable(false);
                 gp.add(a,0,option+2, 3,1);
-                quickFormat(a, Color.BLANCHEDALMOND);
+                quickFormat(a, GUIMain.backgroundcol1);
 
                 if (ans.equals(q.get(currIndex).getCorrectAnswer())){a.setOnAction(new PressCorrect(a, scorecard, currscore, numOfQuestions, contButton, hiddenscore,answers));}
 
@@ -91,10 +95,10 @@ public class QuizFunctions {
     GridPane gp, Label hiddenscore){
         Label congratsMessage = new Label("Congrats "+username.getText()+" on finishing the quiz \n You have scored: "
                                                     +hiddenscore.getText()+"/"+numOfQuestions);
-                quickFormat(congratsMessage,Color.ORANGERED);
+                quickFormat(congratsMessage,GUIMain.backgroundcol1);
                 
                 contButton.setText("Click here to see the leaderboard");
-                quickFormat(contButton, Color.ALICEBLUE);
+                quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
                 String leaderboard = updateLeaderboard("src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText());

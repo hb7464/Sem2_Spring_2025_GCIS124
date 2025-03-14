@@ -1,4 +1,16 @@
 
+fjaiodw,8
+
+hishaam,5
+
+1,2
+
+Enter your name: ,2
+
+Enter your name: ,2
+
 trs,1
+
+Enter your name: ,0
 
 5,0

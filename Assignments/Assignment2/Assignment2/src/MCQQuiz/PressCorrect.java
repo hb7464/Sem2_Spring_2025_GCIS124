@@ -43,7 +43,7 @@ public class PressCorrect implements EventHandler<ActionEvent> {
         hiddenscore.setText(""+currscore);
         correctbutton.setBackground(new Background(new BackgroundFill(Color.GREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         score.setText("   "+(currscore)+"/"+numOfQuestions+"   ");
-        func.quickFormat(cont, Color.LIGHTGREY);
+        func.quickFormat(cont, GUIMain.backgroundcol2);
         cont.setText("Correct Continue!");
 
     }

@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
 public class readToS implements EventHandler<ActionEvent> {
 
@@ -21,8 +20,9 @@ public class readToS implements EventHandler<ActionEvent> {
     private TextField actualNoOfQuestions = new TextField("Enter num: ");
     private Button startQuiz = new Button("Start Quiz");
     private QuizFunctions func = new QuizFunctions();
+    private Button colorButton;
 
-    public readToS(Label[] arrOfLabels, TextField usernameInp, GridPane gp, Button submit){
+    public readToS(Label[] arrOfLabels, TextField usernameInp, GridPane gp, Button submit, Button colorButton){
         this.username = arrOfLabels[0];
         this.timer = arrOfLabels[1];
         this.tos = arrOfLabels[2];
@@ -30,6 +30,7 @@ public class readToS implements EventHandler<ActionEvent> {
         this.usernameInp = usernameInp;
         this.gp = gp;
         this.submit = submit;
+        this.colorButton = colorButton;
     }
 
     public void handle(ActionEvent event){
@@ -40,13 +41,14 @@ public class readToS implements EventHandler<ActionEvent> {
         gp.getChildren().remove(usernameInp);
         gp.getChildren().remove(tos);
         gp.getChildren().remove(submit);
+        gp.getChildren().remove(colorButton);
         
-        func.quickFormat(username, Color.DARKGRAY);
-        func.quickFormat(timer, Color.DARKGRAY);
-        func.quickFormat(scorecard, Color.DARKGRAY);
-        func.quickFormat(noOfQuestions, Color.WHITE);
-        func.quickFormat(actualNoOfQuestions, Color.WHITE);
-        func.quickFormat(startQuiz, Color.WHITE);
+        func.quickFormat(username, GUIMain.backgroundcol2);
+        func.quickFormat(timer, GUIMain.backgroundcol2);
+        func.quickFormat(scorecard, GUIMain.backgroundcol2);
+        func.quickFormat(noOfQuestions, GUIMain.backgroundcol1);
+        func.quickFormat(actualNoOfQuestions, GUIMain.backgroundcol1);
+        func.quickFormat(startQuiz, GUIMain.backgroundcol1);
         
         gp.add(username, 0, 0);
         gp.add(scorecard, 1, 0);
