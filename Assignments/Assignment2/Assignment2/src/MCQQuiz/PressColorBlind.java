@@ -8,9 +8,9 @@ public class PressColorBlind implements EventHandler<ActionEvent> {
     QuizFunctions func = new QuizFunctions();
 
     public void handle(ActionEvent event){
-        GUIMain.backgroundcol1 = GUIMain.CBbackgroundcol;
-        GUIMain.backgroundcol2 = GUIMain.CBbackgroundcol;
-        GUIMain.textcol = GUIMain.CBtextcol;
+        GUIMain.backgroundcol1 = GUIMain.CBBACK_COLOR;
+        GUIMain.backgroundcol2 = GUIMain.CBBACK_COLOR;
+        GUIMain.textcol = GUIMain.CBTEXT_COLOR;
     }
 
 }

@@ -45,7 +45,7 @@ public class QuizFunctions {
         item.setBackground(new Background(new BackgroundFill(bgColor, CornerRadii.EMPTY, Insets.EMPTY)));
         item.setPadding(new Insets(15));
         item.setAlignment(Pos.CENTER);
-        if ((GUIMain.textcol).equals(GUIMain.CBtextcol)){item.setStyle("-fx-text-fill: #f05039");}
+        if ((GUIMain.textcol).equals(GUIMain.CBTEXT_COLOR)){item.setStyle("-fx-text-fill: #f05039");}
 
     }
 

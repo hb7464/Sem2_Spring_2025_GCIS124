@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class QuizQuestions {
 
-    private ArrayList<Question> allQuestions = new ArrayList<>();
-    public ArrayList<Question> selectedQuestions = new ArrayList<>();
+    private ArrayList<Question> allQuestions = new ArrayList<>(); //The Array list of all questions from the file
+    public ArrayList<Question> selectedQuestions = new ArrayList<>(); //
 
     public void load(String filename){
         
@@ -46,7 +46,7 @@ public class QuizQuestions {
 
                 String correctAnswer = bufferedReader.readLine();
                 if (tempArr.length == 2){
-                    TFQQuestion questionData = new TFQQuestion(question, tempArr, correctAnswer);
+                    TFQQuestion questionData = new TFQQuestion(question, correctAnswer);
                     allQuestions.add(questionData);
                 }
                 else{
