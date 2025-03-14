@@ -123,7 +123,7 @@ public class QuizFunctions {
      * @param answers An array of the answer buttons
      * @param numOfQuestions The total number of questions
      * @param contButton The continue button
-     * @param gp The gridpane instnace
+     * @param gp The gridpane instance
      * @param hiddenscore The label containing the user's score
      */
 
@@ -219,7 +219,7 @@ public class QuizFunctions {
      * and make the sure the highest rank has the highest score
      * @param list1 The first entry
      * @param list2 The second entry
-     * @return
+     * @return //returns the arraylist
      */
     
     public int compare(ArrayList<String> list1, ArrayList<String> list2) {
