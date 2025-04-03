@@ -1,38 +1,32 @@
 
+subhanu,10
+
+Mariah,9
+
+khaleel,9
+
+Manognya Kumar Dandala,8
+
 fjaiodw,8
+
+Laayba,6
+
+Azeem,5
 
 hishaam,5
 
-Hishaam,3
+Dan,4
 
-Hishaam,3
+Aiswarya ,4
 
-Hishaam,3
+Khalifa,4
 
-Hishaam,3
+Ayaan,4
 
-Hishaam,2
+Aiswarya,1
 
-Hishaam2,2
+Mohammed,1
 
-Hishaam2,2
+Prashanth,1
 
-Hishaam,2
-
-Enter your name: ,2
-
-Enter your name: ,2
-
-1,2
-
-Enter your name: ,2
-
-Enter your name: ,2
-
-trs,1
-
-Enter your name: ,0
-
-Enter your name: ,0
-
-5,0
+khaleel ,0

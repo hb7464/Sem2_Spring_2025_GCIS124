@@ -99,8 +99,10 @@ public class quizbegin implements EventHandler<ActionEvent> {
                             time--;
                         }
                         else if (time <= 0){
-                            timerLabel.setText("Times Up!");
-                            func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore);
+                            Platform.runLater(() -> {
+                                timerLabel.setText("Times Up!");
+                                func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore);
+                            });
                             timer.cancel();
                         }
                     }
