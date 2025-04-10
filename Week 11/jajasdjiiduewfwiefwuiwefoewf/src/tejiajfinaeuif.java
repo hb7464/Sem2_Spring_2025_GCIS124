@@ -19,6 +19,7 @@ public class tejiajfinaeuif {
             writre.write(inp.nextLine());
         }
         inp.close();
+        writre.close();
     }
 }
 
