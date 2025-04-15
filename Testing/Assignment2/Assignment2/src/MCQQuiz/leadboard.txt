@@ -1,0 +1,32 @@
+
+subhanu,10
+
+Mariah,9
+
+khaleel,9
+
+Manognya Kumar Dandala,8
+
+fjaiodw,8
+
+Laayba,6
+
+Azeem,5
+
+hishaam,5
+
+Dan,4
+
+Aiswarya ,4
+
+Khalifa,4
+
+Ayaan,4
+
+Aiswarya,1
+
+Mohammed,1
+
+Prashanth,1
+
+khaleel ,0
