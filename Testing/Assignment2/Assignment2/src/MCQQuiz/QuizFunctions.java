@@ -197,7 +197,7 @@ public class QuizFunctions {
             
             FileWriter bufferedWriter = new FileWriter(filename);
             int rank = 1;
-            String[][] board = new String[leaderboard.size()][3];
+            String[][] board = new String[leaderboard.size()][4];
             for (ArrayList<String> entry : leaderboard) {
                 bufferedWriter.write("\n"+entry.get(0)+","+entry.get(1)+","+entry.get(2)+"\n");
                 board[rank-1][0] = "["+rank+"]";
@@ -227,7 +227,6 @@ public class QuizFunctions {
      */
     
     public int compare(ArrayList<String> list1, ArrayList<String> list2) {
-
         int num1 = Integer.parseInt(list1.get(1));
         int num2 = Integer.parseInt(list2.get(1)); 
         return num2-num1;
