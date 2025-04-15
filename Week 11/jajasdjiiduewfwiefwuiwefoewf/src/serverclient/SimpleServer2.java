@@ -56,6 +56,7 @@ public class SimpleServer2 {
                
                 br.close();
                 pw.close();
+                ss.close();
             }
         }catch (IOException e){
             e.printStackTrace();

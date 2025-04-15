@@ -36,7 +36,7 @@ public class SimpleClient2 {
         
             // inp.nextLine();
             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            PrintWriter resp = new PrintWriter(socket.getOutputStream(), true);
+            // PrintWriter resp = new PrintWriter(socket.getOutputStream(), true);
             
             br.close();
             pw.close();
