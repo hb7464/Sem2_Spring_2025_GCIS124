@@ -76,11 +76,11 @@ public class QuizFunctions {
 
     public void loadQuestion(Label username, int currIndex, QuizQuestions quizTime, Label q1, 
     Button[] answers, int currscore, int numOfQuestions, Button contButton, 
-    GridPane gp, Label scorecard, Label hiddenscore){
+    GridPane gp, Label scorecard, Label hiddenscore, Label timerLabel){
         try{
             if (currIndex >= quizTime.selectedQuestions.size()){
                 
-                loadEndCard(username, q1, answers, numOfQuestions, contButton, gp, hiddenscore);
+                loadEndCard(username, q1, answers, numOfQuestions, contButton, gp, hiddenscore, timerLabel);
 
                 return;
             }
@@ -109,9 +109,9 @@ public class QuizFunctions {
                 else{a.setOnAction(new PressWrong(a, contButton, answers));}            
                 option++;
             }
-            contButton.setOnAction(new PressContinue(username, contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard, hiddenscore));
+            contButton.setOnAction(new PressContinue(username, contButton, gp, q1, answers, quizTime, currIndex, currscore, numOfQuestions, scorecard, hiddenscore, timerLabel));
         }catch (Exception e){
-            System.out.println("The following error has occured: "+e);
+            e.printStackTrace();
         }   
     }
 
@@ -129,7 +129,7 @@ public class QuizFunctions {
 
     public void loadEndCard(Label username, Label q1, 
     Button[] answers, int numOfQuestions, Button contButton, 
-    GridPane gp, Label hiddenscore){
+    GridPane gp, Label hiddenscore, Label timerLabel){
         Label congratsMessage = new Label("Congrats "+username.getText()+" on finishing the quiz \n You have scored: "
                                                     +hiddenscore.getText()+"/"+numOfQuestions);
                 quickFormat(congratsMessage,GUIMain.backgroundcol1);
@@ -138,7 +138,7 @@ public class QuizFunctions {
                 quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
-                String leaderboard = updateLeaderboard("src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText());
+                String[][] leaderboard = updateLeaderboard("Assignment2\\Assignment2\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), timerLabel.getText());
                 contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
 
                 gp.getChildren().remove(q1);
@@ -160,13 +160,13 @@ public class QuizFunctions {
      * @return //It returns a string to be displayed in a label
      */
 
-    public String updateLeaderboard(String filename, String username, String score){
+    public String[][] updateLeaderboard(String filename, String username, String score, String timetaken){
         ArrayList<ArrayList<String>> leaderboard = new ArrayList<>();
-        String board = "";
         
         ArrayList<String> temp = new ArrayList<>();
         temp.add(username);
         temp.add(score);
+        temp.add(timetaken);
         leaderboard.add(temp);
         
         try{
@@ -197,20 +197,24 @@ public class QuizFunctions {
             
             FileWriter bufferedWriter = new FileWriter(filename);
             int rank = 1;
+            String[][] board = new String[leaderboard.size()][3];
             for (ArrayList<String> entry : leaderboard) {
-                bufferedWriter.write("\n"+entry.get(0)+","+entry.get(1)+"\n");
-                board += "["+rank+"] "+entry.get(0)+" : "+entry.get(1)+"\n";
+                bufferedWriter.write("\n"+entry.get(0)+","+entry.get(1)+","+entry.get(2)+"\n");
+                board[rank-1][0] = "["+rank+"]";
+                for  (int i = 0; i < 3; i++){
+                    board[rank-1][i+1] = entry.get(i);
+                }
                 rank++;
             }
             bufferedWriter.flush();
             bufferedWriter.close();
-            
+            return board;
             
         }catch (Exception e) {
-            System.out.println("The following error has occured: "+e);
             e.printStackTrace();
         }
-        return board;
+        
+        return null;
     }
 
 

@@ -72,7 +72,7 @@ public class QuizQuestions {
             bufferedReader.close();
         } 
         catch (Exception e) {
-            System.out.println("The following error has occured: "+e);
+            e.printStackTrace();
         }    
     }
 

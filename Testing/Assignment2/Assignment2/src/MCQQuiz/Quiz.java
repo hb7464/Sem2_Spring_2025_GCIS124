@@ -18,7 +18,7 @@ public class Quiz {
 
         QuizQuestions quizTime = new QuizQuestions();
         try{ //Try with resources to ensure the file can be opened
-            String filename = "src\\MCQQuiz\\questionsBase.txt";
+            String filename = "Assignment2\\Assignment2\\src\\MCQQuiz\\questionsBase.txt";
             quizTime.load(filename);
             
             Scanner inp = new Scanner(System.in);
@@ -63,7 +63,7 @@ public class Quiz {
             System.out.println("You got a score of: "+this.getScore());
         }
         catch (Exception e){
-            System.out.println("The following Exception has occured: "+e);
+            e.printStackTrace();
         }
 
 

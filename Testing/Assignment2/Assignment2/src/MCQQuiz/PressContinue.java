@@ -24,6 +24,7 @@ public class PressContinue implements EventHandler<ActionEvent> {
     private int numOfQuestions;
     private Label scorecard;
     private Label hiddenscore;
+    private Label timerLabel;
     
     /**
      * Button and events for and after pressing continue button.
@@ -39,11 +40,12 @@ public class PressContinue implements EventHandler<ActionEvent> {
      * @param numOfQuestions The total number of questions.
      * @param scorecard      Label which shows the player's scorecard.
      * @param hiddenscore    The label for storing the hidden score value.
+     * @param timerLabel     The label with the timer
      */
 
     public PressContinue(Label username, Button cont, GridPane gp, 
     Label q1, Button[] answers, QuizQuestions quizTime, 
-    int currIndex, int currscore, int numOfQuestions, Label scorecard, Label hiddenscore){
+    int currIndex, int currscore, int numOfQuestions, Label scorecard, Label hiddenscore, Label timerLabel){
 
         this.username = username;
         this.cont = cont;
@@ -56,6 +58,7 @@ public class PressContinue implements EventHandler<ActionEvent> {
         this.numOfQuestions = numOfQuestions;
         this.scorecard = scorecard;
         this.hiddenscore = hiddenscore;
+        this.timerLabel = timerLabel;
 
     }
 
@@ -71,7 +74,7 @@ public class PressContinue implements EventHandler<ActionEvent> {
 
         currscore = Integer.valueOf(hiddenscore.getText());
         
-        func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
+        func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore, timerLabel);
 
 
     }

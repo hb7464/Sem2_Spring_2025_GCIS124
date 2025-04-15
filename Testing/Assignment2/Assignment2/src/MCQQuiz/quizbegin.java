@@ -76,7 +76,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 gp.add(cont, 0, 10, 3,1);
                 
                 QuizQuestions quizTime = new QuizQuestions();
-                String filename = "src\\MCQQuiz\\questionsBase.txt";
+                String filename = "Assignment2\\Assignment2\\src\\MCQQuiz\\questionsBase.txt";
                 quizTime.load(filename);
                 
                 gp.getChildren().remove(noOfQuestions);
@@ -101,18 +101,18 @@ public class quizbegin implements EventHandler<ActionEvent> {
                         else if (time <= 0){
                             Platform.runLater(() -> {
                                 timerLabel.setText("Times Up!");
-                                func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore);
+                                func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore, timerLabel);
                             });
                             timer.cancel();
                         }
                     }
                 };
                 timer.scheduleAtFixedRate(countdown, 0, 1000);
-                func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore);
+                func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore, timerLabel);
             }
         }
         catch (Exception e){
-            System.out.println("The following exception has occured: "+e);
+            e.printStackTrace();
             noOfQuestions.setText("Can you just enter a regular integer?");
         }
         
