@@ -52,6 +52,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
         this.startQuiz = startQuiz;
     }
 
+
     public void handle(ActionEvent event){ //Getting the number of questions from the user to see how
                                             //many questions are required
 
@@ -85,29 +86,67 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 
                 quizTime.select(numOfQuestions);
                 int currIndex = 0;
-                
-                Timer timer = new Timer();
-                
-                TimerTask countdown = new TimerTask() {
-                    int time = numOfQuestions*60;
-                    @Override 
-                    public void run(){
+                class countdownTimer extends Thread{
 
+                    private final Integer numOfQuestions;
+                    private Label timerLabel;
+                    private String currtime;
+                    private int remainingtime;
+            
+                    public countdownTimer(Integer numOfQuestions, Label timerLabel){
+                        this.numOfQuestions = numOfQuestions;
+                        this.timerLabel = timerLabel;
+                    }
+                
+                    @Override
+                    public void run(){
                         
-                        if (time > 0){
-                            Platform.runLater(() -> {timerLabel.setText((time/60)+":"+(time%60));});
-                            time--;
-                        }
-                        else if (time <= 0){
+                        try{
+            
+                            remainingtime = numOfQuestions*60;
+                            do{
+                                remainingtime--;
+                                currtime = (remainingtime/60)+":"+(remainingtime%60);
+                                Platform.runLater(() -> {timerLabel.setText(currtime);});
+                                Thread.sleep(1000);
+                                }
+                            while(remainingtime > 0);
                             Platform.runLater(() -> {
                                 timerLabel.setText("Times Up!");
                                 func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore, timerLabel);
-                            });
-                            timer.cancel();
+                                });
+            
+                        }catch (Exception e) {
+                        e.printStackTrace();
                         }
                     }
-                };
-                timer.scheduleAtFixedRate(countdown, 0, 1000);
+                
+                }
+                // Timer timer = new Timer();
+                
+                // TimerTask countdown = new TimerTask() {
+                //     int time = numOfQuestions*60;
+                //     @Override 
+                //     public void run(){
+
+                        
+                //         if (time > 0){
+                //             Platform.runLater(() -> {timerLabel.setText((time/60)+":"+(time%60));});
+                //             time--;
+                //         }
+                //         else if (time <= 0){
+                //             Platform.runLater(() -> {
+                //                 timerLabel.setText("Times Up!");
+                //                 func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore, timerLabel);
+                //             });
+                //             timer.cancel();
+                //         }
+                //     }
+                // };
+                // timer.scheduleAtFixedRate(countdown, 0, 1000);
+
+                countdownTimer countingDown = new countdownTimer(numOfQuestions,timerLabel);
+                countingDown.start();
                 func.loadQuestion(username, currIndex, quizTime, q1, answers, currscore, numOfQuestions, cont, gp, scorecard, hiddenscore, timerLabel);
             }
         }

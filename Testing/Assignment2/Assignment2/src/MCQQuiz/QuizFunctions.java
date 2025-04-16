@@ -232,4 +232,32 @@ public class QuizFunctions {
         return num2-num1;
     }
 
+    // public class countdownTimer extends Thread{
+
+    //     private String currtime;
+    //     private final Integer numOfQuestions;
+    //     private int remainingtime;
+    //     private Label timerLabel;
+
+    //     public countdownTimer(Integer numOfQuestions, Label timerLabel){
+    //         this.numOfQuestions = numOfQuestions;
+    //         this.timerLabel = timerLabel;
+    //     }
+    
+    //     @Override
+    //     public void run(){
+    //         try {
+    //         for (int i = numOfQuestions*60 ; i > 0 ; i-- ){
+    //             remainingtime--;
+    //             Thread.sleep(1000);
+    //             currtime = (remainingtime/60)+":"+(remainingtime%60);
+    //             timerLabel.setText(currtime);
+    //             }
+    //         }catch (Exception e) {
+    //         e.printStackTrace();
+    //         }
+    //     }
+    
+    // }
+
 }
