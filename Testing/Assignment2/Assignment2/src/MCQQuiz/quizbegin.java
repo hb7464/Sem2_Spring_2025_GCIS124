@@ -119,28 +119,6 @@ public class quizbegin implements EventHandler<ActionEvent> {
                     }
                 
                 }
-                // Timer timer = new Timer();
-                
-                // TimerTask countdown = new TimerTask() {
-                //     int time = numOfQuestions*60;
-                //     @Override 
-                //     public void run(){
-
-                        
-                //         if (time > 0){
-                //             Platform.runLater(() -> {timerLabel.setText((time/60)+":"+(time%60));});
-                //             time--;
-                //         }
-                //         else if (time <= 0){
-                //             Platform.runLater(() -> {
-                //                 timerLabel.setText("Times Up!");
-                //                 func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore, timerLabel);
-                //             });
-                //             timer.cancel();
-                //         }
-                //     }
-                // };
-                // timer.scheduleAtFixedRate(countdown, 0, 1000);
 
                 countdownTimer countingDown = new countdownTimer(numOfQuestions,timerLabel);
                 countingDown.start();

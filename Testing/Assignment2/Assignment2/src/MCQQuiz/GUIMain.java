@@ -23,10 +23,7 @@ public class GUIMain extends Application{
     static Color backgroundcol1 = Color.rgb(195,210,213);
     static Color backgroundcol2 = Color.rgb(193,247,220);
     static Color textcol = Color.BLACK;
-    final static Color CBBACK_COLOR = Color.rgb(31,68,156);
-    final static Color CBTEXT_COLOR = Color.rgb(240,80,57);
-
-    
+    static boolean notInCBmode = true;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -62,8 +59,8 @@ public class GUIMain extends Application{
         termsOfService.setTextAlignment(TextAlignment.CENTER);
         func.quickFormat(userNameEntry, backgroundcol2);
         func.quickFormat(startButton, backgroundcol1);
-        func.quickFormat(colorButton, CBBACK_COLOR);
-        colorButton.setTextFill(CBTEXT_COLOR);
+        func.quickFormat(colorButton, Color.rgb(31,68,156));
+        colorButton.setTextFill(Color.rgb(240,80,57));
 
         //Adding the objects to the gridpane
 
@@ -75,7 +72,7 @@ public class GUIMain extends Application{
         //Loading the labels into an array so less arguments are required by readToS
         Label[] tempArr = {userNameFinal, timer, termsOfService, scorecard};
         startButton.setOnAction(new readToS(tempArr, userNameEntry, gp, startButton, colorButton));
-        colorButton.setOnAction(new PressColorBlind());
+        colorButton.setOnAction(new PressColorBlind(termsOfService, userNameEntry, startButton));
         
 
         gp.setAlignment(Pos.CENTER);
