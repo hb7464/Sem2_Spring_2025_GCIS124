@@ -109,6 +109,10 @@ public class quizbegin implements EventHandler<ActionEvent> {
                                 }
                             while(remainingtime > 0);
                             Platform.runLater(() -> {
+                                gp.getChildren().remove(q1);
+                                for (Button a: answers){
+                                    gp.getChildren().remove(a);
+                                }
                                 timerLabel.setText("Times Up!");
                                 func.loadEndCard(username, q1, answers, currIndex, cont, gp, hiddenscore, timerLabel);
                                 });

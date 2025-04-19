@@ -9,6 +9,8 @@ dd,1,0:58
 
 3d,1,0:58
 
+ddd,0,Times Up!
+
 dddd,0,Times Up!
 
 3dd,0,Times Up!
