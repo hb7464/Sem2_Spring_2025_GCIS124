@@ -138,7 +138,7 @@ public class QuizFunctions {
                 quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
-                String[][] leaderboard = updateLeaderboard("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), timerLabel.getText());
+                String[][] leaderboard = updateLeaderboard("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
                 contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
 
                 gp.getChildren().remove(q1);
@@ -232,32 +232,34 @@ public class QuizFunctions {
         return num2-num1;
     }
 
-    // public class countdownTimer extends Thread{
+    public String calculateTimeTaken(Label timerLabel, Integer numOfQuestions){
 
-    //     private String currtime;
-    //     private final Integer numOfQuestions;
-    //     private int remainingtime;
-    //     private Label timerLabel;
+        String timerText = timerLabel.getText();
+        
+        if (timerText.equals("Times Up!")){
+            return timerText;
+        }
+        else{
+        int totalTime = numOfQuestions * 60;
+        String[] tempArr = new String[2];
+        String tempStr = "";
 
-    //     public countdownTimer(Integer numOfQuestions, Label timerLabel){
-    //         this.numOfQuestions = numOfQuestions;
-    //         this.timerLabel = timerLabel;
-    //     }
-    
-    //     @Override
-    //     public void run(){
-    //         try {
-    //         for (int i = numOfQuestions*60 ; i > 0 ; i-- ){
-    //             remainingtime--;
-    //             Thread.sleep(1000);
-    //             currtime = (remainingtime/60)+":"+(remainingtime%60);
-    //             timerLabel.setText(currtime);
-    //             }
-    //         }catch (Exception e) {
-    //         e.printStackTrace();
-    //         }
-    //     }
-    
-    // }
-
+        for (int i = 0; i< timerText.length(); i++){
+            if (timerText.charAt(i) == ':'){
+                tempArr[0] = tempStr;
+                tempStr = "";             
+            }
+            else{
+                tempStr += timerText.charAt(i);
+            }
+        }
+        tempArr[1] = tempStr;
+        
+        Integer minutesRemaining = Integer.parseInt(tempArr[0])*60;
+        Integer secondsRemaining = Integer.parseInt(tempArr[1]);
+        int timetaken =  totalTime - (minutesRemaining+secondsRemaining);
+        
+        return (timetaken/60)+":"+(timetaken%60);
+        }
+    }
 }
