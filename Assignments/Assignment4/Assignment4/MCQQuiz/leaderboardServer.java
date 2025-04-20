@@ -9,14 +9,15 @@ public class leaderboardServer{
         Scanner inp = new Scanner(System.in);
         try{
             ServerSocket leaderboardSocket = new ServerSocket(54123);
-            System.out.println("Server launched. Awaiting connection...");
             do{
+                System.out.println("Server launched. Awaiting connection...");
                 Socket quizSocket = leaderboardSocket.accept();
                 System.out.println("Connection Established.");
                 
                 leaderboardThread update = new leaderboardThread(quizSocket);
                 new Thread(update).start();
-
+                
+                System.out.println("Enter 'stop' to shutdown the server");
             }while (!(inp.nextLine()).equals("stop"));
 
             leaderboardSocket.close();

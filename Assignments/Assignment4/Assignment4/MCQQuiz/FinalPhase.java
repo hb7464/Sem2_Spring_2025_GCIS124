@@ -42,12 +42,8 @@ public class FinalPhase implements EventHandler<ActionEvent> {
         gp.add(header, 0,0, 4,1); 
 
         for (int entry = 0; entry < leaderboard.length; entry++){
-            
-            Label rank = new Label("["+(entry+1)+"]");
-            func.quickFormat(rank, GUIMain.backgroundcol2);
-            gp.add(rank,0, entry+1);
 
-            for (int i = 1; i < 4; i++){
+            for (int i = 0; i < 4; i++){
                 Label temp = new Label(leaderboard[entry][i]);
                 func.quickFormat(temp, GUIMain.backgroundcol2);
                 gp.add(temp,i, entry+1);

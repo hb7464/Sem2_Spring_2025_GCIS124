@@ -138,9 +138,10 @@ public class QuizFunctions {
                 quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
-                String[][] leaderboard = updateLeaderboard("Assignment4\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
+                leaderboardClient quizClient = new leaderboardClient();
+                String[][] leaderboard = quizClient.sendScores(username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
                 contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
-
+                
                 gp.getChildren().remove(q1);
                 for (Button a: answers){
                     gp.getChildren().remove(a);

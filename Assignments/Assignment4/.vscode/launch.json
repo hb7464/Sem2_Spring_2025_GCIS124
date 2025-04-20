@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "leaderboardClient",
+            "request": "launch",
+            "mainClass": "MCQQuiz.leaderboardClient",
+            "projectName": "Assignment4_d0ebf70e"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "CLIMain",
+            "request": "launch",
+            "mainClass": "MCQQuiz.CLIMain",
+            "projectName": "Assignment4_d0ebf70e"
+        },
+        {
+            "type": "java",
+            "name": "GUIMain",
+            "request": "launch",
+            "mainClass": "MCQQuiz.GUIMain",
+            "projectName": "Assignment4_d0ebf70e"
+        },
+        {
+            "type": "java",
+            "name": "leaderboardServer",
+            "request": "launch",
+            "mainClass": "MCQQuiz.leaderboardServer",
+            "projectName": "Assignment4_d0ebf70e"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "src.Main",
+            "projectName": "Assignment4_d0ebf70e"
+        }
+    ]
+}
