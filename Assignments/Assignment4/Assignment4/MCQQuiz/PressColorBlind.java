@@ -27,8 +27,6 @@ public class PressColorBlind implements EventHandler<ActionEvent> {
 
     public void handle(ActionEvent event){ // Setting the default color scheme to a colorblind friendly 
                                            //scheme or to default
-
-        System.out.println(GUIMain.notInCBmode); //debug
         if (GUIMain.notInCBmode){
             GUIMain.backgroundcol1 = Color.rgb(31,68,156);
             GUIMain.backgroundcol2 = Color.rgb(31,68,156);

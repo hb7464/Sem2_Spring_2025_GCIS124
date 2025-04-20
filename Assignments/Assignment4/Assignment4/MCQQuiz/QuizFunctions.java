@@ -138,7 +138,7 @@ public class QuizFunctions {
                 quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
-                String[][] leaderboard = updateLeaderboard("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
+                String[][] leaderboard = updateLeaderboard("Assignment4\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
                 contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
 
                 gp.getChildren().remove(q1);
@@ -229,7 +229,38 @@ public class QuizFunctions {
     public int compare(ArrayList<String> list1, ArrayList<String> list2) {
         int num1 = Integer.parseInt(list1.get(1));
         int num2 = Integer.parseInt(list2.get(1)); 
-        return num2-num1;
+        String time1 = list1.get(2); 
+        String time2 = list2.get(2); 
+
+        if (num1 == num2 && (!(time1.equals("Times Up!")) || !(time1.equals("Times Up!")))){
+            int time1Int = 0; 
+            int time2Int = 0;
+            String tempStr = "";
+            
+            for (int i = 0; i< time1.length(); i++){
+                if (time1.charAt(i) == ':'){
+                    time1Int += Integer.parseInt(tempStr)*60;
+                    tempStr = "";             
+                }
+                else{
+                    tempStr += time1.charAt(i);
+                }
+            }
+           time1Int += Integer.parseInt(tempStr);
+           tempStr = "";
+            
+            for (int i = 0; i< time2.length(); i++){
+                if (time2.charAt(i) == ':'){
+                    time1Int += Integer.parseInt(tempStr)*60;
+                    tempStr = "";             
+                }
+                else{
+                    tempStr += time2.charAt(i);
+                }
+            }
+            return time1Int-time2Int;
+        }
+        else return num2-num1;
     }
 
     public String calculateTimeTaken(Label timerLabel, Integer numOfQuestions){

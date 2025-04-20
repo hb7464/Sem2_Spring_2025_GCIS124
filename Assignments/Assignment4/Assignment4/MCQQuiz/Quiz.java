@@ -18,7 +18,7 @@ public class Quiz {
 
         QuizQuestions quizTime = new QuizQuestions();
         try{ //Try with resources to ensure the file can be opened
-            String filename = "Assignment3\\Assignment3\\src\\MCQQuiz\\questionsBase.txt";
+            String filename = "Assignment4\\MCQQuiz\\questionsBase.txt";
             quizTime.load(filename);
             
             Scanner inp = new Scanner(System.in);

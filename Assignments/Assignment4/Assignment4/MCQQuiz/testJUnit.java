@@ -84,7 +84,7 @@ public class testJUnit {
     @Test
     public void testQuestionLoading() {
         QuizQuestions quiz = new QuizQuestions();
-        quiz.load("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt");
+        quiz.load("Assignment4\\MCQQuiz\\leadboard.txt");
         
         assertFalse("Questions should be loaded", quiz.allQuestions.isEmpty());
     }
