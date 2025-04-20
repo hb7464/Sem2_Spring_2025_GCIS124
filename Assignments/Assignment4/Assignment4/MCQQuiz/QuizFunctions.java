@@ -126,6 +126,7 @@ public class QuizFunctions {
      * @param contButton The continue button
      * @param gp The gridpane instance
      * @param hiddenscore The label containing the user's score
+     * @param timerLabel the label containing the time the user has left
      */
 
     public void loadEndCard(Label username, Label q1, 
