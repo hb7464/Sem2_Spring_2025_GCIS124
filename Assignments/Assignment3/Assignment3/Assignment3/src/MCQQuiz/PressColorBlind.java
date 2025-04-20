@@ -38,6 +38,7 @@ public class PressColorBlind implements EventHandler<ActionEvent> {
      * 
      * @param event The action event triggered by button click
      */
+    
     public void handle(ActionEvent event){ // Setting the default color scheme to a colorblind friendly 
                                            //scheme or to default
 
