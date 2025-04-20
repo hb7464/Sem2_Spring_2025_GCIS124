@@ -8,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -134,18 +135,22 @@ public class QuizFunctions {
                                                     +hiddenscore.getText()+"/"+numOfQuestions);
                 quickFormat(congratsMessage,GUIMain.backgroundcol1);
                 
-                contButton.setText("Click here to see the leaderboard");
-                quickFormat(contButton, GUIMain.backgroundcol2);
-                
-                gp.add(congratsMessage, 0, 1, 3,1);
-                leaderboardClient quizClient = new leaderboardClient();
-                String[][] leaderboard = quizClient.sendScores(username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
-                contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
-                
                 gp.getChildren().remove(q1);
-                for (Button a: answers){
+                for (Button a: answers) {
                     gp.getChildren().remove(a);
                 }
+                
+                ProgressIndicator loading = new ProgressIndicator();
+                loading.setPadding(new Insets(-30));
+                GridPane.setMargin(loading, new Insets(20,0,0,0));
+                gp.add(loading, 1,2, 3, 3);
+
+                leaderboardClientThread thread = new leaderboardClientThread(gp, username, hiddenscore.getText(), 
+                numOfQuestions, timerLabel, hiddenscore, contButton, loading);
+                
+                thread.start();
+                    
+                gp.add(congratsMessage, 0, 1, 3,1);
 
     }
 
@@ -173,20 +178,20 @@ public class QuizFunctions {
         try{
             
             BufferedReader bufferedReader = new BufferedReader(new FileReader(filename));
-            while ((bufferedReader.readLine() != null)){
-
-                String entry = bufferedReader.readLine();
+            String entry1;
+            while (((entry1 = bufferedReader.readLine()) != null)){
+                if (entry1.isEmpty()){continue;}
 
                 String tempStr = "";
                 ArrayList<String> tempArr = new ArrayList<>();
 
-                for (int i = 0; i< entry.length(); i++){
-                    if (entry.charAt(i) == ','){
+                for (int i = 0; i< entry1.length(); i++){
+                    if (entry1.charAt(i) == ','){
                         tempArr.add(tempStr);
                         tempStr = "";             
                     }
                     else{
-                        tempStr += entry.charAt(i);
+                        tempStr += entry1.charAt(i);
                     }
                 }
                 tempArr.add(tempStr);

@@ -22,13 +22,6 @@ public class leaderboardClient {
             
             String[][] leaderboardWithRanks = new String[4][4];
             
-            // //First four entries are null, so we need to read the input four times to get rid of it
-
-            // in.readLine();
-            // in.readLine();
-            // in.readLine();
-            // in.readLine();
-            
             for (int i = 0; i < 4; i++){
                 for (int j = 0; j < 4; j++){
                     leaderboardWithRanks[i][j] = in.readLine();
