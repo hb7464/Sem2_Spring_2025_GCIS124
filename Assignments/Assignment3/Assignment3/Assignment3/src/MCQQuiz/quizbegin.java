@@ -74,7 +74,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
                 gp.add(cont, 0, 10, 3,1);
                 
                 QuizQuestions quizTime = new QuizQuestions();
-                String filename = "Assignment2\\Assignment2\\src\\MCQQuiz\\questionsBase.txt";
+                String filename = "Assignment3\\Assignment3\\src\\MCQQuiz\\questionsBase.txt";
                 quizTime.load(filename);
                 
                 gp.getChildren().remove(noOfQuestions);

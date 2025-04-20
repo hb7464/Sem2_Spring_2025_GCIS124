@@ -138,7 +138,7 @@ public class QuizFunctions {
                 quickFormat(contButton, GUIMain.backgroundcol2);
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
-                String[][] leaderboard = updateLeaderboard("Assignment2\\Assignment2\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), timerLabel.getText());
+                String[][] leaderboard = updateLeaderboard("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), timerLabel.getText());
                 contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
 
                 gp.getChildren().remove(q1);
