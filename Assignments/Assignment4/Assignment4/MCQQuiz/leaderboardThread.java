@@ -5,14 +5,31 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class leaderboardThread implements Runnable{
+/**
+ * The leaderboardThread class handles processing of leaderboard update requests
+ * from individual client sockets in a separate thread.
+ */
 
+public class leaderboardThread implements Runnable{
+    
     private Socket quizSocket;
     QuizFunctions func = new QuizFunctions();
+    
+    /**
+     * Creates a leaderboard thread taking the quizClient socket as an argument
+     *
+     * @param quizSocket The client side socket
+     */
     
     public leaderboardThread(Socket quizSocket){
         this.quizSocket = quizSocket;
     }
+    
+    /**
+     * Processes the client's quiz submission by reading the name, score, and time
+     * Updates the leaderboard and sends back an updated nested string array of the top 3
+     * submissions as well as the user's submission back to the client socket
+     */
 
     @Override
     public synchronized void run(){

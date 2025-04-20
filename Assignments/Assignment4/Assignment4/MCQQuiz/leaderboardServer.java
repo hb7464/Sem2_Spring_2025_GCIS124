@@ -4,7 +4,19 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
+/**
+ * The leaderboardServer class is responsible for the creation of a TCP server
+ * which listens for multiple quiz clients and updates the quiz submissions
+ * using the leaderboardThread class
+ */
+
 public class leaderboardServer{
+
+    /**
+     * Main method used to launch the TCP server
+     * 
+     * @param args the arguments for when we call main
+     */
     public static void main(String[] args) {
         Scanner inp = new Scanner(System.in);
         try{
