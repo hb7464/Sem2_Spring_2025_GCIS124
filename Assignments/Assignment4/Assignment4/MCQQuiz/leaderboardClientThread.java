@@ -38,7 +38,7 @@ public class leaderboardClientThread extends Thread {
         Platform.runLater(() -> {
             contButton.setText("Click here to see the leaderboard");
             func.quickFormat(contButton, GUIMain.backgroundcol2);
-            contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
+            contButton.setOnAction(new FinalPhase(gp, leaderboard));
             gp.getChildren().remove(loading);
         });
     }

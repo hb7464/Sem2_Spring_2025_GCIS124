@@ -139,7 +139,7 @@ public class QuizFunctions {
                 
                 gp.add(congratsMessage, 0, 1, 3,1);
                 String[][] leaderboard = updateLeaderboard("Assignment3\\Assignment3\\src\\MCQQuiz\\leadboard.txt", username.getText(), hiddenscore.getText(), calculateTimeTaken(timerLabel, numOfQuestions));
-                contButton.setOnAction(new FinalPhase(gp, numOfQuestions, hiddenscore, leaderboard));
+                contButton.setOnAction(new FinalPhase(gp, leaderboard));
 
                 gp.getChildren().remove(q1);
                 for (Button a: answers){
@@ -264,7 +264,7 @@ public class QuizFunctions {
         }
         else return num2-num1;
     }
-    
+
     /**
     * Calculates the time taken to complete the quiz.
     * 
