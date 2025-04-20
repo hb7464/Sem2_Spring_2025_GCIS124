@@ -163,6 +163,7 @@ public class QuizFunctions {
      * @param filename the filepath for the leaderboard
      * @param username The username the user entered at the start of the quiz
      * @param score The user's final score
+     * @param timetaken Time taken to complete quiz
      * @return //It returns a string to be displayed in a label
      */
 
@@ -227,6 +228,7 @@ public class QuizFunctions {
     /**
      * A comparator used sort through the entries on the leaderboard
      * and make the sure the highest rank has the highest score
+     * and based on lowest time taken
      * @param list1 The first entry
      * @param list2 The second entry
      * @return //returns the arraylist
@@ -268,7 +270,13 @@ public class QuizFunctions {
         }
         else return num2-num1;
     }
-
+    
+    /**
+    * Calculates the time taken to complete the quiz.
+    * 
+    * @param timerLabel Label containing the current timer text
+    * @param numOfQuestions Total number of quiz questions
+    */
     public String calculateTimeTaken(Label timerLabel, Integer numOfQuestions){
 
         String timerText = timerLabel.getText();

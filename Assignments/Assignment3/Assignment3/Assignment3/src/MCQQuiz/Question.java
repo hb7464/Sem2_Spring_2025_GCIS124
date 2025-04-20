@@ -12,7 +12,10 @@ public interface Question {
     public String[] getAllAnswers();
     public String getCorrectAnswer();
 
-    //A method to check if the answer is correct
+    /**
+     * Checks if the provided answer is correct.
+     * @param userOption The answer provided by the user
+     */
     public boolean isCorrectAnswer(String userOption);
 
 }

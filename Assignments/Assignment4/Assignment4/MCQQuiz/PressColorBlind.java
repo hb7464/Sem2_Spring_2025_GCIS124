@@ -19,12 +19,27 @@ public class PressColorBlind implements EventHandler<ActionEvent> {
     private TextField userNameEntry;
     private Button startButton;
 
+    /**
+     * Constructs a PressColorBlind event handler with references to UI elements.
+     * 
+     * @param termsOfService The label containing terms of service text
+     * @param userNameEntry The text field for user name entry
+     * @param startButton The main start quiz button
+     */
+
     public PressColorBlind(Label termsOfService, TextField userNameEntry, Button startButton){
         this.termsOfService = termsOfService;
         this.userNameEntry = userNameEntry;
         this.startButton = startButton;
     }
 
+    /**
+     * Handles the color mode toggle action.
+     * Switches between normal and colorblind-friendly color schemes when the button is clicked.
+     * 
+     * @param event The action event triggered by button click
+     */
+    
     public void handle(ActionEvent event){ // Setting the default color scheme to a colorblind friendly 
                                            //scheme or to default
         if (GUIMain.notInCBmode){

@@ -18,7 +18,7 @@ public class FinalPhase implements EventHandler<ActionEvent> {
     private String[][] leaderboard;
     
     /**
-     * 
+     * Constructs a FinalPhase handler to display the quiz leaderboard.
      * @param gp the gridpane
      * @param numOfQuestions How many questions in total
      * @param hiddenscore //A label that ensures the user's score is not lost

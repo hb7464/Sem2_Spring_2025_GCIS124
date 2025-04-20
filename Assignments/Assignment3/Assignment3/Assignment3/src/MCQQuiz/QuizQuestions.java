@@ -16,6 +16,7 @@ public class QuizQuestions {
 
 
     /**
+     * Loads questions from the specified file.
      * @param filename The filepath of the file with the questions
      */
 

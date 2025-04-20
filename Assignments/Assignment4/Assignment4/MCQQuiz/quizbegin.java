@@ -37,6 +37,7 @@ public class quizbegin implements EventHandler<ActionEvent> {
      * @param actualNoOfQuestions The input from the user about the required number of questions
      * @param gp The gridpane instance
      * @param startQuiz The button used to start the quiz
+     * @param timerLabel The label displaying the quiz timer
      */
 
     public quizbegin(Label[] arrOfLabels, TextField actualNoOfQuestions, GridPane gp, Button startQuiz){

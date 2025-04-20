@@ -25,6 +25,13 @@ public class GUIMain extends Application{
     static Color textcol = Color.BLACK;
     static boolean notInCBmode = true;
 
+    /**
+     * The main entry point for the JavaFX application.
+     * Sets up the initial GUI layout with terms of service, user name entry,
+     * and control buttons.
+     * 
+     * @param stage The primary stage for this application
+     */
     @Override
     public void start(Stage stage) throws Exception {
         
@@ -82,6 +89,11 @@ public class GUIMain extends Application{
 
     }
 
+    /**
+     * Main method to launch the JavaFX application.
+     * 
+     * @param args the arguments for when we call main
+     */
     public static void main(String[] args) {
         
         launch(args);
