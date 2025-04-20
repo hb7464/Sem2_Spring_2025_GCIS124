@@ -5,7 +5,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class leaderboardClient {
-    public static void main(String[] args) {
+    public void showLeaderboard(String name, String score, String timetaken) {
 
         try{
             Socket quizSocket = new Socket("localhost", 54123);

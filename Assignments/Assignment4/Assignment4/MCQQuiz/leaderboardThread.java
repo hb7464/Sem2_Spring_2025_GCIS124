@@ -8,6 +8,7 @@ import java.net.Socket;
 public class leaderboardThread implements Runnable{
 
     private Socket quizSocket;
+    QuizFunctions func = new QuizFunctions();
     
     public leaderboardThread(Socket quizSocket){
         this.quizSocket = quizSocket;
@@ -23,6 +24,9 @@ public class leaderboardThread implements Runnable{
             String name = in.readLine();
             String score = in.readLine();
             String time = in.readLine();
+            String filename = "Assignment4\\MCQQuiz\\leadboard.txt";
+
+            func.updateLeaderboard(filename, name, score, time);
 
             System.out.println("Received from client: " + name + ", " + score + ", " + time);
 
