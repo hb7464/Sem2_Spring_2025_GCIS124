@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 import java.util.Scanner;
 
 /**

@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 
 /**
  * The main file for the command line interface version of the quiz

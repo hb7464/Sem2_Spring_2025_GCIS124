@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;

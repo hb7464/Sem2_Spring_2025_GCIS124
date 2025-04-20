@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 
 /**
  * This represents a class for multiple choice questions with possible answers and the correct answer 

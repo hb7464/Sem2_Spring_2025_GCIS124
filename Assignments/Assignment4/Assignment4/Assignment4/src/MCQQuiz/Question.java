@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 
 /**
  * The interface we use to define structure of a quiz question.

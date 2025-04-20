@@ -1,4 +1,4 @@
-package MCQQuiz;
+package Assignment4.src.MCQQuiz;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class QuizQuestions {
 
-    private ArrayList<Question> allQuestions = new ArrayList<>(); //The array list of all questions from the file
+    ArrayList<Question> allQuestions = new ArrayList<>(); //The array list of all questions from the file
     public ArrayList<Question> selectedQuestions = new ArrayList<>(); //The array list of questions designated for the user to answer
 
 
