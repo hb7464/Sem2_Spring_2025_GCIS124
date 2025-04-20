@@ -13,18 +13,16 @@ public class leaderboardClientThread extends Thread {
     private String score;
     private int numOfQuestions;
     private Label timerLabel;
-    private Label hiddenscore;
     private Button contButton;
     private ProgressIndicator loading;
 
     public leaderboardClientThread(GridPane gp, Label username, String score, int numOfQuestions,
-                                             Label timerLabel, Label hiddenscore, Button contButton, ProgressIndicator loading) {
+                                             Label timerLabel, Button contButton, ProgressIndicator loading) {
         this.gp = gp;
         this.username = username;
         this.score = score;
         this.numOfQuestions = numOfQuestions;
         this.timerLabel = timerLabel;
-        this.hiddenscore = hiddenscore;
         this.contButton = contButton;
         this.loading = loading;
     }

@@ -6,7 +6,22 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 
+/**
+ * The leaderboardClient class handles client-side socket communication with the leaderboard server.
+ * It sends a user's name, score, and time taken to the server and receives an updated leaderboard with ranks.
+ */
+
 public class leaderboardClient {
+
+    /**
+     * Sends the user's quiz result to the leaderboard server and receives the updated leaderboard with top 3 submissions and the user's submission
+     *
+     * @param name The username
+     * @param score The user's score
+     * @param timetaken The time taken to complete the quiz
+     * @return A nested array containg the top 3 quiz submission and the user's submission
+     */
+
     public String[][] sendScores(String name, String score, String timetaken) {
 
         try{

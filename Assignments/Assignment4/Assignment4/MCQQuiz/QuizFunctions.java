@@ -146,7 +146,7 @@ public class QuizFunctions {
                 gp.add(loading, 1,2, 3, 3);
 
                 leaderboardClientThread thread = new leaderboardClientThread(gp, username, hiddenscore.getText(), 
-                numOfQuestions, timerLabel, hiddenscore, contButton, loading);
+                numOfQuestions, timerLabel, contButton, loading);
                 
                 thread.start();
                     
