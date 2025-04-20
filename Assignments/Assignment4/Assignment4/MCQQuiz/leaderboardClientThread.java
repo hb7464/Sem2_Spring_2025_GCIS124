@@ -6,6 +6,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.GridPane;
 
+/**
+ * The leaderboardClientThread class is responsible for defining a thread 
+ * that updates the gridpane once the leaderboard is ready to be displayed 
+ * and removes the loading screen
+ */
+
 public class leaderboardClientThread extends Thread {
 
     private GridPane gp;
@@ -15,6 +21,18 @@ public class leaderboardClientThread extends Thread {
     private Label timerLabel;
     private Button contButton;
     private ProgressIndicator loading;
+
+    /**
+     * The constructor for the client thread
+     *
+     * @param gp The GridPane 
+     * @param username The username as a label
+     * @param score The user's score as a string
+     * @param numOfQuestions The number of questions the user selected
+     * @param timerLabel The label with user's submission time
+     * @param contButton The continue button that will be used to show the leaderboard
+     * @param loading The circular loading object to show the user the quiz is loading
+     */
 
     public leaderboardClientThread(GridPane gp, Label username, String score, int numOfQuestions,
                                              Label timerLabel, Button contButton, ProgressIndicator loading) {
@@ -26,6 +44,11 @@ public class leaderboardClientThread extends Thread {
         this.contButton = contButton;
         this.loading = loading;
     }
+
+    /**
+     * A thread that sends the user data to the server and then updates the 
+     * end screen once the leaderboard is ready
+     */
 
     @Override
     public void run() {
